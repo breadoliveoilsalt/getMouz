@@ -6,7 +6,7 @@
   height: 30em;  /* 16px * 30 = 460px */
   width: 30em;
   border: solid black .5em;
-  background-color: pink;
+  background-color: black;
 }
 
 .text-centered {
@@ -16,9 +16,9 @@
 
 .dot {
   position: absolute;
-  top: 1em;
-  left: 1em;
-  height: 2em; /* 30 ems = container width or height */
-  width: 2em;
-  background-color: black;
+  top: 1em; /* 0 em to 28 em is right up against boarder, at 2 em sized dots */
+  left: 27em; /* 0 em to 27 em is right up against boarder, at 3 em sized dots */
+  height: 3em; /* 30 ems = container width or height */
+  width: 3em;
+  background-color: pink;
 }
