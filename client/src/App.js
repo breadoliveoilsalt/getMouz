@@ -21,7 +21,7 @@ class App extends Component {
 
           <Switch>
             <Route path="/" exact component={TestComponent}/>
-            <Route path="/about" exact component={RandomDotsContainer} />
+            <Route path="/randomdots" exact component={RandomDotsContainer} />
           </Switch>
 
         </div>
