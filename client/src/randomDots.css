@@ -1,11 +1,24 @@
 .container {
+  position: relative;
   margin: auto;
-  height: 80vh;
-  width: 80vh;
-  border: solid black 1px;
+  /* height: 80vh; */
+  /* width: 80vh; */
+  height: 30em;  /* 16px * 30 = 460px */
+  width: 30em;
+  border: solid black .5em;
   background-color: pink;
 }
 
 .text-centered {
   text-align: center;
+}
+
+
+.dot {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  height: 2em; /* 30 ems = container width or height */
+  width: 2em;
+  background-color: black;
 }
