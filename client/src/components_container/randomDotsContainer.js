@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import '../randomDots.css'
 
 class RandomDotsContainer extends Component {
   render(){
     return(
-      <div class="container">
-        Random dots!
+      <div>
+        <h1 class="text-centered">Random Dots!</h1>
+        <div class="container">
+        </div>
       </div>
     )
   }

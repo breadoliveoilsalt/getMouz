@@ -30,11 +30,3 @@
     transform: rotate(360deg);
   }
 }
-
-.container {
-  margin: auto;
-  height: 80vh;
-  width: 80vh;
-  border: solid black 1px;
-  background-color: pink;
-}

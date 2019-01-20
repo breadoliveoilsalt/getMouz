@@ -12,9 +12,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.container {
-  height: 80%;
-  width: 80%;
-  background-color: black;
-}
