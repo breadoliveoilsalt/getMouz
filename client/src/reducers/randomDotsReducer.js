@@ -8,3 +8,12 @@ function randomDotsReducer(state = {}, action) {
 }
 
 export default randomDotsReducer
+
+ dot = {
+  id: x, 
+  top: x,
+  left: x,
+  height: x,
+  width: x,
+  color: x
+}
