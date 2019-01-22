@@ -5,11 +5,13 @@ import { combineReducers } from 'redux'
 // import errorReducer from './errorReducer'
 // ...and add them to object below, separated by commas
 
-import testReducer from './testReducer'
+// import testReducer from './testReducer'
+import randomDotReducer from './randomDotsReducer'
 
 const rootReducer = combineReducers(
   {
-    testReducer: testReducer
+    // testReducer: testReducer,
+    randomDotReducer: randomDotReducer
   }
 )
 
