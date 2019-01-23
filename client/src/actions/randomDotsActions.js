@@ -10,21 +10,11 @@ export function addDot(payload) {
 
  export function generateDot() {
 
-    let attributes = {
-      id: getId(),
-      top: getCoordinate(),
-      left: getCoordinate(),
-      height: getSize(),
-      width: getSize(),
-      color: getColor
-    }
-
-    return new Dot(attributes)
  }
 
 ///// PRIVATE FUNCTIONS /////
 
-// Wrapper for Dots, to create and add id number
+// Wrapper for Dots, to create and add id number and other attributes.
 class DotFactory {
 
   constructor() {
@@ -36,21 +26,24 @@ class DotFactory {
 
     let idNumber = this.idCounter
     let color = this.selectColor()
+
     let size = this.selectSize()
     let sizeToString = `${size}em`
+
     let xCoordinate = this.selectCoordinate(size)
+    let xCoordinateToString = `${xCoordinate}em`
+
     let yCoordinate = this.selectCoordinate(size)
+    let yCoordinateToString = `${yCoordinate}em`
 
-    return new Dot(
-      { id: idNumber,
+    return new Dot({
+        id: idNumber,
         color: color,
-        height: size,
-        width: size,
-        top:
-
-
-      }
-    )
+        height: sizeToString,
+        width: sizeToString,
+        left: xCoordinateToString,
+        bottom: yCoordinateToString
+      })
   }
 
   selectColor() {
@@ -66,11 +59,11 @@ class DotFactory {
   selectCoordinate(size) {
     switch (size) {
       case 1:
-        return getRandom(0,29)
+        return this.getRandom(0,29)
       case 2:
-        return getRandom(0,28)
+        return this.getRandom(0,28)
       case 3:
-        return getRandom(0,27)
+        return this.getRandom(0,27)
     }
   }
     // Get random number, inclusive of max and min
@@ -82,20 +75,12 @@ class DotFactory {
 
 class Dot {
 
-  constructor(id) {
-    this.id = id,
-    this.color = this.selectColor()
-    // this.top: attributes.top,
-    // this.left: attributes.left,
-    // this.height: attributes.height,
-    // this.width: attributes.width
+  constructor(attributes) {
+    this.id = attributes.id,
+    this.color = attributes.color,
+    this.height = attributes.height,
+    this.width = attributes.width,
+    this.left = attributes.left,
+    this.bottom = attributes.bottom
   }
-
 }
-
-//
-// getCoordinate(){
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-// }
