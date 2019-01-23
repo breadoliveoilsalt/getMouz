@@ -52,6 +52,7 @@ class DotFactory {
     return colors[index]
   }
 
+    // Bug to fix: this sometimes gives me 4, which screws others up.
   selectSize() {
     return this.getRandom(1,3)
   }
@@ -66,9 +67,9 @@ class DotFactory {
         return this.getRandom(0,27)
     }
   }
-    // Get random number, inclusive of max and min
+    // Get random number, inclusive of max and min. Might have fixed. 
   getRandom(min, max) {
-    return Math.floor(Math.random() * (max + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
 }
