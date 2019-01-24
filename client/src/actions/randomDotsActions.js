@@ -1,16 +1,19 @@
 
 ///// PUBLIC FUNCTIONS /////
 
-export function addDot(payload) {
+export function createDotFactory(payload) {
+  return (
+    {type: 'ADD_DOT_FACTORY',
+    action: payload}
+  )
+}
+
+export function createDot(payload) {
   return (
     {type: 'ADD_DOT',
      action: payload}
    )
 }
-
- export function generateDot() {
-
- }
 
 ///// PRIVATE FUNCTIONS /////
 
@@ -24,7 +27,7 @@ class DotFactory {
   createDot() {
     this.idCounter += 1
 
-    let idNumber = this.idCounter
+    let id = this.idCounter
     let color = this.selectColor()
 
     let size = this.selectSize()
@@ -37,7 +40,7 @@ class DotFactory {
     let yCoordinateToString = `${yCoordinate}em`
 
     return new Dot({
-        id: idNumber,
+        id: id,
         color: color,
         height: sizeToString,
         width: sizeToString,
@@ -67,7 +70,7 @@ class DotFactory {
         return this.getRandom(0,27)
     }
   }
-    // Get random number, inclusive of max and min. Might have fixed. 
+    // Get random number, inclusive of max and min. Might have fixed.
   getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
