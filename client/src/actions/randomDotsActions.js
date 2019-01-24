@@ -1,7 +1,8 @@
 
 ///// PUBLIC FUNCTIONS /////
 
-export function createDotFactory(payload) {
+export function createDotFactory() {
+  let payload = new DotFactory()
   return (
     {type: 'ADD_DOT_FACTORY',
     action: payload}
