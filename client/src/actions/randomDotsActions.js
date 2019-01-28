@@ -19,6 +19,10 @@ export function createDot(payload) {
 ///// PRIVATE FUNCTIONS /////
 
 // Wrapper for Dots, to create and add id number and other attributes.
+// There are probably different ways of doing this: perhaps use a component's
+// state to start an ID counter, and then assign that state to the object's id
+// as it is created? I'm running with this for now.
+
 class DotFactory {
 
   constructor() {
@@ -52,7 +56,7 @@ class DotFactory {
 
   selectColor() {
     let colors = ["pink", "brown", "green", "blue", "grey", "red"]
-    let index = this.getRandom(0, 6)
+    let index = this.getRandom(0, 5)
     return colors[index]
   }
 
