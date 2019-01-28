@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../randomDots.css'
 
-import { createDotFactory, createDot } from '../actions/randomDotActions'
+import { createDotFactory, createDot } from '../actions/randomDotsActions'
 
 class RandomDotsContainer extends Component {
 
   componentDidMount(){
-    createDotFactory()
+    // createDotFactory()
+    // let firstDot = this.props.dotFactory.createDot()
+    let dot = {id: 1, color: "green", height: "3em", width: "3em", left: "1em", bottom: "27em"}
+    this.props.createDot(dot)
+
   }
 
 
@@ -32,8 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      createDotFactory: () => dispatch(createDotFactory()),
-      createDot: (this.props.dotFactory) => dispatch(createDot(dotFactory))
+      createDotFactory: (createDotFactory) => dispatch(createDotFactory()),
+      createDot: (dot) => dispatch(createDot(dot))
    }
 }
 

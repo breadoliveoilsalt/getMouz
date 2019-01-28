@@ -6,9 +6,11 @@ function randomDotsReducer(state = {
 
   switch (action.type) {
     case 'ADD_DOT_FACTORY':
+    debugger
       return Object.assign({}, state, {dotFactory: action.payload} )
     case 'ADD_DOT':
-      return Object.assign({}, state, {dots: [...state.dots, action.payload])
+      debugger
+      return Object.assign({}, state, {dots: [...state.dots, action.payload]})
     default:
       return state
   }

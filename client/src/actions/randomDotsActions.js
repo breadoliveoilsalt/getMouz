@@ -5,14 +5,14 @@ export function createDotFactory() {
   let payload = new DotFactory()
   return (
     {type: 'ADD_DOT_FACTORY',
-    action: payload}
+    payload: payload}
   )
 }
 
 export function createDot(payload) {
   return (
     {type: 'ADD_DOT',
-     action: payload}
+     payload: payload}
    )
 }
 
@@ -44,7 +44,7 @@ class DotFactory {
     let yCoordinate = this.selectCoordinate(size)
     let yCoordinateToString = `${yCoordinate}em`
 
-    return new Dot({
+    return ({
         id: id,
         color: color,
         height: sizeToString,
@@ -82,14 +82,16 @@ class DotFactory {
 
 }
 
-class Dot {
-
-  constructor(attributes) {
-    this.id = attributes.id,
-    this.color = attributes.color,
-    this.height = attributes.height,
-    this.width = attributes.width,
-    this.left = attributes.left,
-    this.bottom = attributes.bottom
-  }
-}
+// This is generating the follow React error when called above:
+// [for the line with this.id:   Expected an assignment or function call and instead saw an expression  no-unused-expressions
+// class Dot {
+//
+//   constructor(attributes) {
+//     this.id = attributes.id,
+//     this.color = attributes.color,
+//     this.height = attributes.height,
+//     this.width = attributes.width,
+//     this.left = attributes.left,
+//     this.bottom = attributes.bottom
+//   }
+// }
