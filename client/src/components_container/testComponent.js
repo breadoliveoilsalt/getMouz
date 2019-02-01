@@ -16,7 +16,6 @@ class TestComponent extends Component {
     .then(response => console.log(response))
     }
 
-
   render() {
     return(
       <div>

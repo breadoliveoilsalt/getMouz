@@ -1,15 +1,19 @@
 
 ///// PUBLIC FUNCTIONS /////
 
-export function createDotFactory() {
-  let payload = new DotFactory()
+
+export function createDotFactory(){
+  return new DotFactory
+}
+
+export function addDotFactory(payload) {
   return (
     {type: 'ADD_DOT_FACTORY',
     payload: payload}
   )
 }
 
-export function createDot(payload) {
+export function addDot(payload) {
   return (
     {type: 'ADD_DOT',
      payload: payload}
@@ -23,7 +27,7 @@ export function createDot(payload) {
 // state to start an ID counter, and then assign that state to the object's id
 // as it is created? I'm running with this for now.
 
-class DotFactory {
+export class DotFactory {
 
   constructor() {
     this.idCounter = 0
