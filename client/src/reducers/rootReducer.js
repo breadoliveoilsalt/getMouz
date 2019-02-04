@@ -6,12 +6,12 @@ import { combineReducers } from 'redux'
 // ...and add them to object below, separated by commas
 
 // import testReducer from './testReducer'
-import randomDotReducer from './randomDotsReducer'
+import randomDotsReducer from './randomDotsReducer'
 
 const rootReducer = combineReducers(
   {
     // testReducer: testReducer,
-    randomDotReducer: randomDotReducer
+    randomDots: randomDotsReducer
   }
 )
 

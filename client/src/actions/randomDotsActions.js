@@ -3,7 +3,7 @@
 
 
 export function createDotFactory(){
-  return new DotFactory
+  return new DotFactory()
 }
 
 export function addDotFactory(payload) {
@@ -77,6 +77,8 @@ export class DotFactory {
         return this.getRandom(0,28)
       case 3:
         return this.getRandom(0,27)
+      default:
+        return 0
     }
   }
     // Get random number, inclusive of max and min. Might have fixed.

@@ -7,8 +7,20 @@ import { addDotFactory, addDot, createDotFactory } from '../actions/randomDotsAc
 class RandomDotsContainer extends Component {
 
   componentDidMount(){
+
+
     let dotFactory = createDotFactory()
     this.props.addDotFactory(dotFactory)
+    console.log("Wasting time 1")
+    console.log("wasting time 3")
+    let firstDot = dotFactory.createDot()
+    this.props.addDot(firstDot)
+    // debugger
+    // ---
+
+  // --- works:
+    // let firstDot = this.props.dotFactory.createDot()
+    // this.props.addDot(firstDot)
 
     // this.props.createDotFactory()
     // let firstDot = this.props.dotFactory.createDot()
@@ -17,14 +29,20 @@ class RandomDotsContainer extends Component {
 
   }
 
+  triggerDebugger(){
+    debugger
+  }
+
 
   render(){
     return(
       <div>
+        Here's where the dots should be:
         <h1 class="text-centered">Random Dots!</h1>
         <div class="container">
           <div class="dot" />
         </div>
+        <button onClick={this.triggerDebugger}> Debugger </button>
       </div>
     )
   }
@@ -32,8 +50,8 @@ class RandomDotsContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    dotFactory: state.dotFactory,
-    dots: state.dots
+    dotFactory: state.randomDots.dotFactory,
+    dots: state.randomDots.dots
   }
 }
 
