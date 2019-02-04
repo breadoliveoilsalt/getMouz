@@ -29,11 +29,6 @@ class RandomDotsContainer extends Component {
 
   }
 
-  triggerDebugger(){
-    debugger
-  }
-
-
   render(){
     return(
       <div>
@@ -42,7 +37,6 @@ class RandomDotsContainer extends Component {
         <div class="container">
           <div class="dot" />
         </div>
-        <button onClick={this.triggerDebugger}> Debugger </button>
       </div>
     )
   }
