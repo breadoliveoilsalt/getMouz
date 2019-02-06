@@ -20,6 +20,11 @@ export function addDot(payload) {
    )
 }
 
+export function clearDotFactoryandDots(){
+  return (
+    {type: 'CLEAR_DOT_FACTORY_AND_DOTS'}
+  )
+}
 ///// PRIVATE FUNCTIONS /////
 
 // Wrapper for Dots, to create and add id number and other attributes.

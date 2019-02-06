@@ -14,11 +14,11 @@
 }
 
 
-.dot {
+/* .dot {
   position: absolute;
   bottom: 0em; /* 0 em to 28 em is right up against boarder, at 2 em sized dots */
   left: 27em; /* 0 em to 27 em is right up against boarder, at 3 em sized dots */
   height: 3em; /* 30 ems = container width or height */
-  width: 3em;
+  /* width: 3em;
   background-color: pink;
-}
+} */
