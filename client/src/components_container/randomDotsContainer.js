@@ -13,9 +13,16 @@ class RandomDotsContainer extends Component {
     // let firstDot = dotFactory.createDot()
     // this.props.addDot(firstDot)
     this.timer = setInterval(
-      () => this.renderDot(),
+      function(){
+        while (this.props.dots.length < 11) {
+          return this.renderDot()}}.bind(this), // need binding for this to work. Also need to return for timer to work.
       1000
     );
+
+    // this.timer = setInterval(
+    //   () => this.renderDot(),
+    //   1000
+    // );
   }
 
   componentWillUnmount() {
@@ -24,9 +31,9 @@ class RandomDotsContainer extends Component {
   }
 
   renderDot() {
-    console.log("Timer working")
     let dot = this.props.dotFactory.createDot()
     this.props.addDot(dot)
+    // this.render()
   }
 
   render(){
