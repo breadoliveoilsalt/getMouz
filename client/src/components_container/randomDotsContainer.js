@@ -34,56 +34,59 @@ class RandomDotsContainer extends Component {
 
   render(){
 
-    const dotList = [
-      {
-        id: 1,
-        color: 'green',
-        height: '2em',
-        width: '2em',
-        left: '8em',
-        bottom: '21em'
-      },
-      {
-        id: 2,
-        color: 'red',
-        height: '1em',
-        width: '1em',
-        left: '28em',
-        bottom: '1em'
-      },
-      {
-        id: 3,
-        color: 'green',
-        height: '1em',
-        width: '1em',
-        left: '29em',
-        bottom: '19em'
-      },
-      {
-        id: 4,
-        color: 'pink',
-        height: '1em',
-        width: '1em',
-        left: '19em',
-        bottom: '22em'
-      }]
+    // const dotList = [
+    //   {
+    //     id: 1,
+    //     color: 'green',
+    //     height: '2em',
+    //     width: '2em',
+    //     left: '8em',
+    //     bottom: '21em'
+    //   },
+    //   {
+    //     id: 2,
+    //     color: 'red',
+    //     height: '1em',
+    //     width: '1em',
+    //     left: '28em',
+    //     bottom: '1em'
+    //   },
+    //   {
+    //     id: 3,
+    //     color: 'green',
+    //     height: '1em',
+    //     width: '1em',
+    //     left: '29em',
+    //     bottom: '19em'
+    //   },
+    //   {
+    //     id: 4,
+    //     color: 'pink',
+    //     height: '1em',
+    //     width: '1em',
+    //     left: '19em',
+    //     bottom: '22em'
+    //   }]
 
 /// MAKE SURE COLOR IS BACKGROUND-COLOR!
-    const dotStyle = {
-      position: 'absolute',
-      backgroundColor: 'green',
-      height: '1em',
-      width: '1em',
-      left: '29em',
-      bottom: '19em'}
+/// ***** 190211 - The below proves that dotDisplay can be rendered below. Now to flush this out to multiple dots.
+    // const dotStyle = {
+    //   position: 'absolute',
+    //   backgroundColor: 'green',
+    //   height: '1em',
+    //   width: '1em',
+    //   left: '29em',
+    //   bottom: '19em'}
+    //
+    // const dotsDisplay = <div style={dotStyle}/>
+/// *****
 
-    const dotsDisplay = <div style={dotStyle}/>
-
-    // dotList.map( (dot) => {
+/// ***** 190211 - The below proves I can link dotsDisplay to a list.  Now time to hook up to redux state
+    // const dotsDisplay = dotList.map( (dot) => {
     //
     //   const dotStyle = {
     //     position: "absolute",
-    //     color: dot.color,
+    //     backgroundColor: dot.color,
     //     height: dot.height,
     //     width: dot.width,
     //     left: dot.left,
@@ -92,14 +95,21 @@ class RandomDotsContainer extends Component {
     //
     //   return  (<div id="{dot.id}" style={dotStyle}/>)
     // })
+/// ******
 
-    // <div style={{
-    // position: 'absolute',
-    // color: 'pink',
-    // height: '1em',
-    // width: '1em',
-    // left: '19em',
-    // bottom: '22em'}} />
+  const dotsDisplay = this.props.dots.map( (dot) => {
+
+    const dotStyle = {
+      position: "absolute",
+      backgroundColor: dot.color,
+      height: dot.height,
+      width: dot.width,
+      left: dot.left,
+      bottom: dot.bottom
+    }
+
+    return  (<div id="{dot.id}" style={dotStyle}/>)
+  })
 
     return(
       <div>
