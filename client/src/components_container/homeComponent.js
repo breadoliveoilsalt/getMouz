@@ -8,7 +8,7 @@ import { addAnotherOne } from '../actions/testActions'
 // <p> List of Ones: {this.props.numberList} </p>
 // <p> <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button> </p>
 
-class TestComponent extends Component {
+class HomeComponent extends Component {
 
   componentDidMount() {
     this.getAPIMessage()
@@ -43,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent)

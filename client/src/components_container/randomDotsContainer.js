@@ -52,7 +52,6 @@ class RandomDotsContainer extends Component {
       <div>
         <h1 className="text-centered">Random Dots!</h1>
         <div className="container">
-          <div className="dotty" />
           {dotsDisplay}
         </div>
       </div>
