@@ -10,14 +10,15 @@ class RandomDotsContainer extends Component {
 
     let dotFactory = createDotFactory()
     this.props.addDotFactory(dotFactory)
-    // let firstDot = dotFactory.createDot()
-    // this.props.addDot(firstDot)
-    this.timer = setInterval(
-      function(){
-        while (this.props.dots.length < 11) {
-          return this.renderDot()}}.bind(this), // need binding for this to work. Also need to return for timer to work.
-      1000
-    );
+    this.timer = setInterval(() => this.renderDot(), 750)
+
+    // Version of a timer with a limit.  Note: need .bind for this to work. And need to return within the while loop.
+    // this.timer = setInterval(
+    //   function(){
+    //     while (this.props.dots.length < 11) {
+    //       return this.renderDot()}}.bind(this),
+    //   1000
+    // );
 
   }
 
@@ -29,87 +30,23 @@ class RandomDotsContainer extends Component {
   renderDot() {
     let dot = this.props.dotFactory.createDot()
     this.props.addDot(dot)
-    // this.render()
   }
 
   render(){
 
-    // const dotList = [
-    //   {
-    //     id: 1,
-    //     color: 'green',
-    //     height: '2em',
-    //     width: '2em',
-    //     left: '8em',
-    //     bottom: '21em'
-    //   },
-    //   {
-    //     id: 2,
-    //     color: 'red',
-    //     height: '1em',
-    //     width: '1em',
-    //     left: '28em',
-    //     bottom: '1em'
-    //   },
-    //   {
-    //     id: 3,
-    //     color: 'green',
-    //     height: '1em',
-    //     width: '1em',
-    //     left: '29em',
-    //     bottom: '19em'
-    //   },
-    //   {
-    //     id: 4,
-    //     color: 'pink',
-    //     height: '1em',
-    //     width: '1em',
-    //     left: '19em',
-    //     bottom: '22em'
-    //   }]
+    const dotsDisplay = this.props.dots.map( (dot) => {
 
-/// MAKE SURE COLOR IS BACKGROUND-COLOR!
-/// ***** 190211 - The below proves that dotDisplay can be rendered below. Now to flush this out to multiple dots.
-    // const dotStyle = {
-    //   position: 'absolute',
-    //   backgroundColor: 'green',
-    //   height: '1em',
-    //   width: '1em',
-    //   left: '29em',
-    //   bottom: '19em'}
-    //
-    // const dotsDisplay = <div style={dotStyle}/>
-/// *****
+      const dotStyle = {
+        position: "absolute",
+        backgroundColor: dot.color,
+        height: dot.height,
+        width: dot.width,
+        left: dot.left,
+        bottom: dot.bottom
+      }
 
-/// ***** 190211 - The below proves I can link dotsDisplay to a list.  Now time to hook up to redux state
-    // const dotsDisplay = dotList.map( (dot) => {
-    //
-    //   const dotStyle = {
-    //     position: "absolute",
-    //     backgroundColor: dot.color,
-    //     height: dot.height,
-    //     width: dot.width,
-    //     left: dot.left,
-    //     bottom: dot.bottom
-    //   }
-    //
-    //   return  (<div id="{dot.id}" style={dotStyle}/>)
-    // })
-/// ******
-
-  const dotsDisplay = this.props.dots.map( (dot) => {
-
-    const dotStyle = {
-      position: "absolute",
-      backgroundColor: dot.color,
-      height: dot.height,
-      width: dot.width,
-      left: dot.left,
-      bottom: dot.bottom
-    }
-
-    return  (<div id="{dot.id}" style={dotStyle}/>)
-  })
+      return  (<div id="{dot.id}" style={dotStyle}/>)
+    })
 
     return(
       <div>
