@@ -4,6 +4,10 @@ import fetch from 'isomorphic-fetch'
 
 import { addAnotherOne } from '../actions/testActions'
 
+// JSX I removed from below.
+// <p> List of Ones: {this.props.numberList} </p>
+// <p> <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button> </p>
+
 class TestComponent extends Component {
 
   componentDidMount() {
@@ -19,8 +23,7 @@ class TestComponent extends Component {
   render() {
     return(
       <div>
-        <p> List of Ones: {this.props.numberList} </p>
-        <p> <button onClick={this.props.addAnotherOne}> Click to Add Another 1 ! </button> </p>
+        <p style={{margin:'2em'}}> Home page. Come here to stop the random dots. </p>
       </div>
     )
   }
