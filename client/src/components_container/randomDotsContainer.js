@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import '../randomDots.css'
+import '../parentCSS.css'
 
 import { addDotFactory, addDot, createDotFactory, clearDotFactoryandDots } from '../actions/randomDotsActions'
 
