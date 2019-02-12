@@ -5,8 +5,43 @@ import '../parentCSS.css'
 class RainContainer extends Component {
 
   render() {
+
+    const segmentStyle1 = {
+      position: "absolute",
+      backgroundColor: "white",
+      height: "1em",
+      width: ".2em",
+      left: "10em",
+      bottom: "10em"
+    }
+
+    const segmentStyle2 = {
+      position: "absolute",
+      backgroundColor: "white",
+      height: "1em",
+      width: ".2em",
+      left: "10.1em",
+      bottom: "11em"
+    }
+
+    const segmentStyle3 = {
+      position: "absolute",
+      backgroundColor: "white",
+      height: "1em",
+      width: ".2em",
+      left: "10.2em",
+      bottom: "12em"
+    }
+
+    const dropSegments = [<div style={segmentStyle1} />,  <div style={segmentStyle2} />, <div style={segmentStyle3} />]
+
     return (
-      <p> You made it to the rain container! </p>
+      <div>
+        <h1 className="text-centered">Rain</h1>
+        <div className="container">
+          {dropSegments}
+        </div>
+      </div>
     )
   }
 }
