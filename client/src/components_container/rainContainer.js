@@ -12,7 +12,7 @@ class RainContainer extends Component {
       height: "1em",
       width: ".2em",
       left: "10em",
-      bottom: "10em"
+      bottom: "29em"
     }
 
     const segmentStyle2 = {
