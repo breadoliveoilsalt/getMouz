@@ -7,7 +7,12 @@ class RainContainer extends Component {
 
   componentDidMount() {
     let rdFactory = createRainFactory()
-    // Up to here -- have to test adding stuff to state
+    this.props.addRainDropFactory(rdFactory)
+    debugger
+    // let rainDrop = this.props.rainDropFactory.createRainDrop()
+    // this.props.addRainDrop(rainDrop)
+    // this.timer = setInterval(() => this.renderRainDrop(), 750)
+
   }
 
   render() {

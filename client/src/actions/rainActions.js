@@ -58,6 +58,7 @@ class RainDropFactory {
     let xCoordinate = startingXCoordinate
     let yCoordinate = startingYCoordinate
 
+    // for now I am excluding the id
     let rainDrop = []
 
     for (let i = 0; i < 3; i++) {

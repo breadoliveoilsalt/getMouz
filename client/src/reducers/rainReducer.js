@@ -1,6 +1,10 @@
 function rainReducer(state = {
   rainDropFactory: null,
   rainDrops: []
+    // {
+    // id: null
+    // segments: []
+    // }
   },
   action) {
     switch(action.type) {
