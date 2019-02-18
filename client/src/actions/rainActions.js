@@ -1,6 +1,33 @@
-console.log("You made it to rainActions")
+///// PUBLIC FUNCTIONS /////
 
-export class RainDropFactory {
+export function createRainFactory(){
+  return new RainDropFactory()
+}
+
+export function addRainDropFactory(payload) {
+  return (
+    {type: 'ADD_RAIN_DROP_FACTORY',
+    payload: payload}
+  )
+}
+
+export function addRainDrop(payload) {
+  return (
+    {type: 'ADD_RAIN_DROP',
+     payload: payload}
+   )
+}
+
+export function clearDotFactoryandDots(){
+  return (
+    {type: 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS'}
+  )
+}
+
+///// PRIVATE FUNCTIONS /////
+
+
+class RainDropFactory {
 
   constructor(){
     this.idCounter = 0
