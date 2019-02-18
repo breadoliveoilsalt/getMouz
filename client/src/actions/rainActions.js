@@ -18,7 +18,7 @@ export function addRainDrop(payload) {
    )
 }
 
-export function clearDotFactoryandDots(){
+export function clearRainDropFactoryAndRainDrops(){
   return (
     {type: 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS'}
   )

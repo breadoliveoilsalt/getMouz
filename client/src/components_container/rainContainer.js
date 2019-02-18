@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../parentCSS.css'
-import { RainDropFactory } from '../actions/rainActions'
+import { createRainFactory, addRainDropFactory, addRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
 class RainContainer extends Component {
 
   componentDidMount() {
-    let rdFactory = new RainDropFactory
+    let rdFactory = createRainFactory()
+    // Up to here -- have to test adding stuff to state
   }
 
   render() {
@@ -51,4 +52,19 @@ class RainContainer extends Component {
   }
 }
 
-export default RainContainer
+const mapStateToProps = (state) => {
+  return {
+    rainDropFactory: state.rain.rainDropFactory,
+    rainDrops: state.rain.rainDrops
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
+      addRainDrop: (drop) => dispatch(addRainDrop(drop)),
+      clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RainContainer)
