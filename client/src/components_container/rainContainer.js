@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../parentCSS.css'
+import { RainDropFactory } from '../actions/rainActions'
 
 class RainContainer extends Component {
+
+  componentDidMount() {
+    let rdFactory = new RainDropFactory
+  }
 
   render() {
 

@@ -1,6 +1,6 @@
 console.log("You made it to rainActions")
 
-class RainDropFactory {
+export class RainDropFactory {
 
   constructor(){
     this.idCounter = 0
