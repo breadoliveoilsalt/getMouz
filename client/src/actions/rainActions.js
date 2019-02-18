@@ -14,18 +14,10 @@ class RainDropFactory {
 
     let startingYCoordinate = 29
 
-    let rainDrop = []
-    let segmentHorizontalIncrement = 0.1
-
-
-    rainDrop.push(new Segment(startingXCoordinate))
-    rainDrop.push(new Segment(startingXCoordinate + segmentHorizontalIncrement))
-    rainDrop.push(new Segment())
-
     // Keeping all the segment info as integers rather than strings might make updating easier!
     return ({
       id: this.idCounter,
-      segments: createSegments(startingXCoordinate, startingYCoordinate)
+      segments: this.createSegments(startingXCoordinate, startingYCoordinate)
     })
   }
 
@@ -48,7 +40,7 @@ class RainDropFactory {
         backgroundColor: "white",
         height: "1em",
         width: ".2em",
-        left: xCoordinate,
+        left: Math.round(xCoordinate * 100)/100, // to round to 2 decimal places
         bottom: yCoordinate
       }
 
