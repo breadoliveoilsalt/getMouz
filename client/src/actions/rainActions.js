@@ -36,15 +36,17 @@ class RainDropFactory {
   createRainDrop() {
     this.idCounter++
 
+    let id = this.idCounter
     let startingXCoordinate = this.getRandom(0,29)
     // let startingXCoordinateToString = `${xCoordinate}em`
 
     let startingYCoordinate = 29
 
     // Keeping all the segment info as integers rather than strings might make updating easier!
+    // Returns an object where id number is the key and value is an array with segments.
+    // This should make lookup and iteration easier.
     return ({
-      id: this.idCounter,
-      segments: this.createSegments(startingXCoordinate, startingYCoordinate)
+      id: this.createSegments(startingXCoordinate, startingYCoordinate)
     })
   }
 
@@ -59,7 +61,7 @@ class RainDropFactory {
     let yCoordinate = startingYCoordinate
 
     // for now I am excluding the id
-    let rainDrop = []
+    let rainDropSegments = []
 
     for (let i = 0; i < 3; i++) {
 
@@ -72,14 +74,14 @@ class RainDropFactory {
         bottom: yCoordinate
       }
 
-      rainDrop.push(segment)
+      rainDropSegments.push(segment)
 
       xCoordinate += 0.1
       yCoordinate += 1
 
     }
 
-    return rainDrop
+    return rainDropSegments
 
   }
 }
