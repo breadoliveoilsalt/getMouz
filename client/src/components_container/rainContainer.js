@@ -53,10 +53,11 @@ class RainContainer extends Component {
     // const dropSegments = [<div style={segmentStyle1} />,  <div style={segmentStyle2} />, <div style={segmentStyle3} />]
 
 
-    // 190218 - up to: go to reducer and make raindrops one big object where each key is the id
-    // and the values are the segments. Then see if I can get these things to render on page or in display.
-    // Fixed the above - see if I can add key to dots and rainDrops.
-    // Don't forget to add componentWillUnmount here!
+    // 190220 - Up to seeing if I can get RainDrop segments to visible render.  Note: problem may be
+    // that the segments are not contained in their own wrapper div. Have to think that through.
+    // Also, maybe I need to have separete segment components that identify when they should be hidden
+    // using terniary operator and that self-update.  Problem then is I need parent to decide when to remove
+    // entire drop from the redux state. And of course that will affect using the indexes of array as ids
     const drops = this.props.rainDrops.map( (segments) => {
       return <RainDrop segments={segments} />
     })
