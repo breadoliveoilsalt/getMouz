@@ -46,9 +46,9 @@ class RainDropFactory {
     // Keeping all the segment info as integers rather than strings might make updating easier!
     // Returns an object where id number is the key and value is an array with segments.
     // This should make lookup and iteration easier.
-    return ({
-      id: this.createSegments(startingXCoordinate, startingYCoordinate)
-    })
+    return (
+      this.createSegments(startingXCoordinate, startingYCoordinate)
+      )
   }
 
 

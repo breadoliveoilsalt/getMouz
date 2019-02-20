@@ -57,8 +57,8 @@ class RainContainer extends Component {
     // and the values are the segments. Then see if I can get these things to render on page or in display.
     // Fixed the above - see if I can add key to dots and rainDrops.
     // Don't forget to add componentWillUnmount here!
-    const drops = this.props.rainDrops.map( (rainObject) => {
-      return <RainDrop objectInfo={rainObject} />
+    const drops = this.props.rainDrops.map( (segments) => {
+      return <RainDrop segments={segments} />
     })
 
     return (
