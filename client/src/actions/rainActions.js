@@ -1,25 +1,25 @@
 ///// PUBLIC FUNCTIONS /////
 // have to add back exports
 
-function createRainFactory(){
+export function createRainFactory(){
   return new RainDropFactory()
 }
 
-function addRainDropFactory(payload) {
+export function addRainDropFactory(payload) {
   return (
     {type: 'ADD_RAIN_DROP_FACTORY',
     payload: payload}
   )
 }
 
-function addRainDrop(payload) {
+export function addRainDrop(payload) {
   return (
     {type: 'ADD_RAIN_DROP',
      payload: payload}
    )
 }
 
-function clearRainDropFactoryAndRainDrops(){
+export function clearRainDropFactoryAndRainDrops(){
   return (
     {type: 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS'}
   )
