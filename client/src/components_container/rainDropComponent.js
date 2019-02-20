@@ -9,7 +9,6 @@ class RainDrop extends Component {
   }
 
   render() {
-    debugger
 
     const segments = this.props.segments.map( (segment) => {
       const segmentStyle = {
@@ -26,7 +25,7 @@ class RainDrop extends Component {
     })
 
     return (
-      {segments}
+      segments
     )
   }
 }
