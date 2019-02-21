@@ -11,9 +11,10 @@ class RainDrop extends Component {
   render() {
 
     const segments = this.props.segments.map( (segment) => {
+
       const segmentStyle = {
           position: segment.position,
-          backgroundColor: segment.color,
+          backgroundColor: segment.backgroundColor,
           height: segment.height,
           width: segment.width,
           left: `${segment.left}em`,
