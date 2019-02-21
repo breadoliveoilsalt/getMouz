@@ -25,7 +25,9 @@ class RainDrop extends Component {
     })
 
     return (
-      segments
+      <div>
+        {segments}
+      </div>
     )
   }
 }

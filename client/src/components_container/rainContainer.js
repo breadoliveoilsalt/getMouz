@@ -16,6 +16,11 @@ class RainContainer extends Component {
 
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    this.props.clearRainDropFactoryAndRainDrops()
+  }
+
   renderRainDrop() {
     let drop = this.props.rainDropFactory.createRainDrop()
     this.props.addRainDrop(drop)
@@ -29,7 +34,7 @@ class RainContainer extends Component {
     //   height: "1em",
     //   width: ".2em",
     //   left: "10em",
-    //   bottom: "29em"
+    //   bottom: "10em"
     // }
     //
     // const segmentStyle2 = {
@@ -49,9 +54,9 @@ class RainContainer extends Component {
     //   left: "10.2em",
     //   bottom: "12em"
     // }
-
+    //
     // const dropSegments = [<div style={segmentStyle1} />,  <div style={segmentStyle2} />, <div style={segmentStyle3} />]
-
+    //
 
     // 190220 - Up to seeing if I can get RainDrop segments to visible render.  Note: problem may be
     // that the segments are not contained in their own wrapper div. Have to think that through.
