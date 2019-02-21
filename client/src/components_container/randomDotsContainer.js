@@ -32,7 +32,7 @@ class RandomDotsContainer extends Component {
     this.props.addDot(dot)
   }
 
-  render(){
+  render() {
 
     const dotsDisplay = this.props.dots.map( (dot) => {
 

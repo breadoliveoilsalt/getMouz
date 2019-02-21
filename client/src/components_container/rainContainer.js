@@ -63,6 +63,10 @@ class RainContainer extends Component {
     // Also, maybe I need to have separete segment components that identify when they should be hidden
     // using terniary operator and that self-update.  Problem then is I need parent to decide when to remove
     // entire drop from the redux state. And of course that will affect using the indexes of array as ids
+
+    // Refactor state to see if I can get id to be key.  That way, i can look up key quickly for removing from state.
+    // each segment should move on its own
+    // Segment Component which should be hidden if height/width is beyond certain threshold
     const drops = this.props.rainDrops.map( (segments) => {
       return <RainDrop segments={segments} />
     })

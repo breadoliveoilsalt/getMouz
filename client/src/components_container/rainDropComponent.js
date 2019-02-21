@@ -2,14 +2,28 @@ import React, { Component } from 'react'
 
 class RainDrop extends Component {
 
-  // Draft functtion to update dimensions here, but then pass it on to parent
   constructor(props) {
     super(props)
-    // debugger
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.updateSegments(), 750)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  updateSegments() {
+    this.props.segments.forEach( (segment) => {
+      segment.bottom -= 1
+      segment.left -= 0.1
+    })
   }
 
   render() {
 
+    // If I make a separate Segment component, each segment will have to be wrapped in a div pair.  That's a lot of divs! Too many.
     const segments = this.props.segments.map( (segment) => {
 
       const segmentStyle = {
