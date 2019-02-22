@@ -7,7 +7,7 @@ class RainDrop extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.updateSegments(), 750)
+    this.timer = setInterval(() => this.updateSegments(), this.getRandomTiming())
   }
 
   componentWillUnmount() {
@@ -20,6 +20,10 @@ class RainDrop extends Component {
       segment.bottom -= 1
       segment.left -= 0.1
     })
+  }
+
+  getRandomTiming() {
+    return Math.floor(Math.random() * (1500 - 250 + 1) + 250)
   }
 
   render() {
