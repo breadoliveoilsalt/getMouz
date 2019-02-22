@@ -67,15 +67,17 @@ class RainContainer extends Component {
     // Refactor state to see if I can get id to be key.  That way, i can look up key quickly for removing from state.
     // each segment should move on its own
     // Segment Component which should be hidden if height/width is beyond certain threshold
-    const drops = this.props.rainDrops.map( (segments) => {
-      return <RainDrop segments={segments} />
-    })
+
+
+    // const drops = this.props.rainDrops.map( (segments) => {
+    //   return <RainDrop segments={segments} />
+    // })
 
     return (
       <div>
         <h1 className="text-centered">Rain</h1>
         <div className="container">
-          {drops}
+          
         </div>
       </div>
     )

@@ -1,5 +1,4 @@
 ///// PUBLIC FUNCTIONS /////
-// have to add back exports
 
 export function createRainFactory(){
   return new RainDropFactory()
@@ -43,12 +42,19 @@ class RainDropFactory {
 
     let startingYCoordinate = 29
 
-    // Keeping all the segment info as integers rather than strings might make updating easier!
+
     // Returns an object where id number is the key and value is an array with segments.
     // This should make lookup and iteration easier.
-    return (
-      this.createSegments(startingXCoordinate, startingYCoordinate)
-      )
+    let currentId = this.idCounter
+
+    let returnObject = {}
+    returnObject[currentId] = this.createSegments(startingXCoordinate, startingYCoordinate)
+
+    return returnObject
+
+      // Note re the last few lines above, this would not work:
+      // { currentId: this.createSegments(startingXCoordinate, startingYCoordinate)}
+
   }
 
 
@@ -61,11 +67,11 @@ class RainDropFactory {
     let xCoordinate = startingXCoordinate
     let yCoordinate = startingYCoordinate
 
-    // for now I am excluding the id
     let rainDropSegments = []
 
     for (let i = 0; i < 3; i++) {
 
+        // Keeping all mutable segment info as integers rather than strings might make updating easier!
       let segment = {
         position: "absolute",
         backgroundColor: "white",
