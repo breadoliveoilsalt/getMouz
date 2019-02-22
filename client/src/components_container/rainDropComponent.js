@@ -14,6 +14,7 @@ class RainDrop extends Component {
     clearInterval(this.timer)
   }
 
+    // What's interesting is that this is updating the Redux state as well!
   updateSegments() {
     this.props.segments.forEach( (segment) => {
       segment.bottom -= 1
