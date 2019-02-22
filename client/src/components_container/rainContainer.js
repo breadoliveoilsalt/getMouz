@@ -68,16 +68,22 @@ class RainContainer extends Component {
     // each segment should move on its own
     // Segment Component which should be hidden if height/width is beyond certain threshold
 
-
+    // this worked when rainDrops was an array.  Now it's an object.
     // const drops = this.props.rainDrops.map( (segments) => {
     //   return <RainDrop segments={segments} />
     // })
+    const dropsToRender = []
+
+    for (let segmentKey in this.props.rainDrops) {
+      let segments = this.props.rainDrops[segmentKey]
+      dropsToRender.push(<RainDrop key={segmentKey} segments={segments} />)
+    }
 
     return (
       <div>
         <h1 className="text-centered">Rain</h1>
         <div className="container">
-          
+          {dropsToRender}
         </div>
       </div>
     )
