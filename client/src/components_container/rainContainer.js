@@ -12,7 +12,7 @@ class RainContainer extends Component {
     this.props.addRainDropFactory(rdFactory)
     // let rainDrop = this.props.rainDropFactory.createRainDrop()
     // this.props.addRainDrop(rainDrop)
-    this.timer = setInterval(() => this.renderRainDrop(), 2000)
+    this.timer = setInterval(() => this.renderRainDrop(), 500)
 
   }
 
