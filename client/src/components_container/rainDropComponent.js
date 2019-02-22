@@ -31,16 +31,21 @@ class RainDrop extends Component {
     // If I make a separate Segment component, each segment will have to be wrapped in a div pair.  That's a lot of divs! Too many.
     const segments = this.props.segments.map( (segment) => {
 
-      const segmentStyle = {
-          position: segment.position,
-          backgroundColor: segment.backgroundColor,
-          height: segment.height,
-          width: segment.width,
-          left: `${segment.left}em`,
-          bottom: `${segment.bottom}em`
-      }
+      if (
+        segment.left >= 0 && segment.left <= 29 &&
+        segment.bottom >= 0 && segment.bottom <= 29) {
 
-      return (<div style={segmentStyle} />)
+        const segmentStyle = {
+            position: segment.position,
+            backgroundColor: segment.backgroundColor,
+            height: segment.height,
+            width: segment.width,
+            left: `${segment.left}em`,
+            bottom: `${segment.bottom}em`
+        }
+
+        return (<div style={segmentStyle} />)
+      }
 
     })
 
