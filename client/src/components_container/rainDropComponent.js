@@ -14,12 +14,17 @@ class RainDrop extends Component {
     clearInterval(this.timer)
   }
 
-    // What's interesting is that this is updating the Redux state as well!
+    // What's interesting is that this is updating the Redux state directly without a dispatch!
   updateSegments() {
-    this.props.segments.forEach( (segment) => {
+    let segmentsToUpdate = [...this.props.segments]
+    segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
     })
+    let rainDropToUpdate = {}
+    rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
+    debugger
+    this.props.updateRainDrop(rainDropToUpdate)
   }
 
   getRandomTiming() {
@@ -56,7 +61,6 @@ class RainDrop extends Component {
     )
   }
 }
-
 
 
 export default RainDrop

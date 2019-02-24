@@ -8,6 +8,8 @@ function rainReducer(state = {
         return Object.assign({}, state, {rainDropFactory: action.payload})
       case 'ADD_RAIN_DROP':
         return Object.assign({}, state, {rainDrops: {...state.rainDrops, ...action.payload} })
+      case 'UPDATE_RAIN_DROP':
+        return Object.assign({}, state, {rainDrops: {...state.rainDrops, ...action.payload} })
       case 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS':
         return {rainDropFactory: null, rainDrops: []}
       default:

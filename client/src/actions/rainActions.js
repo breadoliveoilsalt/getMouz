@@ -18,11 +18,20 @@ export function addRainDrop(payload) {
    )
 }
 
+export function updateRainDrop(payload) {
+  return (
+    {type: 'UPDATE_RAIN_DROP',
+     payload: payload}
+  )
+}
+
 export function clearRainDropFactoryAndRainDrops(){
   return (
     {type: 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS'}
   )
 }
+
+
 
 ///// PRIVATE FUNCTIONS /////
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../parentCSS.css'
-import { createRainFactory, addRainDropFactory, addRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
+import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
 import RainDrop from './rainDropComponent'
 
@@ -10,10 +10,10 @@ class RainContainer extends Component {
   componentDidMount() {
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-    // let rainDrop = this.props.rainDropFactory.createRainDrop()
-    // this.props.addRainDrop(rainDrop)
-    this.timer = setInterval(() => this.renderRainDrop(), 500)
-
+    // this.timer = setInterval(() => this.renderRainDrop(), 500)
+    // Did not work: Promise.resolve(this.props.addRainDropFactory(rdFactory)).then(this.renderRainDrop())
+    // Works: setTimeout(function() {alert("Hi")}, 1000)
+    setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
   }
 
   componentWillUnmount() {
@@ -76,7 +76,7 @@ class RainContainer extends Component {
 
     for (let segmentKey in this.props.rainDrops) {
       let segments = this.props.rainDrops[segmentKey]
-      dropsToRender.push(<RainDrop key={segmentKey} segments={segments} />)
+      dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
     }
 
     return (
@@ -101,6 +101,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
       addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
       addRainDrop: (drop) => dispatch(addRainDrop(drop)),
+      updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
       clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
    }
 }
