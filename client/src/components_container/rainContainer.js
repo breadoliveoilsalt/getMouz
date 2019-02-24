@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../parentCSS.css'
-import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
+import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
 import RainDrop from './rainDropComponent'
 
@@ -34,8 +34,16 @@ class RainContainer extends Component {
     const dropsToRender = []
 
     for (let segmentKey in this.props.rainDrops) {
-      let segments = this.props.rainDrops[segmentKey]
-      dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
+      // Check last segment to see if the last segment is now below the floor, and if so, remove from state
+      if (this.props.rainDrops[segmentKey][2].bottom < 0) {
+        this.props.clearRainDrop(segmentKey)
+      }
+
+      // Otherwise, render the rainSegment
+      else {
+        let segments = this.props.rainDrops[segmentKey]
+        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
+      }
     }
 
     return (
@@ -61,6 +69,7 @@ const mapDispatchToProps = (dispatch) => {
       addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
       addRainDrop: (drop) => dispatch(addRainDrop(drop)),
       updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
+      clearRainDrop: (id) => dispatch(clearRainDrop(id)),
       clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
    }
 }

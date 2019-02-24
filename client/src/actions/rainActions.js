@@ -25,6 +25,15 @@ export function updateRainDrop(payload) {
   )
 }
 
+export function clearRainDrop(payload) {
+    // payload is just an id number
+    debugger
+  return (
+    {type: 'CLEAR_RAIN_DROP',
+      payload: payload}
+  )
+}
+
 export function clearRainDropFactoryAndRainDrops(){
   return (
     {type: 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS'}
