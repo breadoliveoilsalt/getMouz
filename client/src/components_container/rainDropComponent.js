@@ -14,7 +14,8 @@ class RainDrop extends Component {
     clearInterval(this.timer)
   }
 
-    // What's interesting is that this is updating the Redux state directly without a dispatch!
+    // Without the "vebosity" and "clones" below, the redux state's rainDrop objects would be updated directly.
+    // Now it is updated via a dispatch methods
   updateSegments() {
     let segmentsToUpdate = [...this.props.segments]
     segmentsToUpdate.forEach( (segment) => {
@@ -23,17 +24,18 @@ class RainDrop extends Component {
     })
     let rainDropToUpdate = {}
     rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
-    debugger
     this.props.updateRainDrop(rainDropToUpdate)
   }
 
+  // This affects how far each segment moves each time it is updated by the parent component
   getRandomTiming() {
     return Math.floor(Math.random() * (1500 - 250 + 1) + 250)
   }
 
   render() {
 
-    // If I make a separate Segment component, each segment will have to be wrapped in a div pair.  That's a lot of divs! Too many.
+    // If I make a separate Segment component, each segment will have to be wrapped in a div pair.
+    // That's a lot of divs! Too many.  So left things this way without a Segment component
     const segments = this.props.segments.map( (segment) => {
 
       if (

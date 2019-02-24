@@ -10,10 +10,8 @@ class RainContainer extends Component {
   componentDidMount() {
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-    // this.timer = setInterval(() => this.renderRainDrop(), 500)
-    // Did not work: Promise.resolve(this.props.addRainDropFactory(rdFactory)).then(this.renderRainDrop())
-    // Works: setTimeout(function() {alert("Hi")}, 1000)
-    setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
+    this.timer = setInterval(() => this.renderRainDrop(), 500)
+    // Was  helpful for testing a one off rainDrop: setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
   }
 
   componentWillUnmount() {
@@ -28,50 +26,11 @@ class RainContainer extends Component {
 
   render() {
 
-    // const segmentStyle1 = {
-    //   position: "absolute",
-    //   backgroundColor: "white",
-    //   height: "1em",
-    //   width: ".2em",
-    //   left: "10em",
-    //   bottom: "10em"
-    // }
-    //
-    // const segmentStyle2 = {
-    //   position: "absolute",
-    //   backgroundColor: "white",
-    //   height: "1em",
-    //   width: ".2em",
-    //   left: "10.1em",
-    //   bottom: "11em"
-    // }
-    //
-    // const segmentStyle3 = {
-    //   position: "absolute",
-    //   backgroundColor: "white",
-    //   height: "1em",
-    //   width: ".2em",
-    //   left: "10.2em",
-    //   bottom: "12em"
-    // }
-    //
-    // const dropSegments = [<div style={segmentStyle1} />,  <div style={segmentStyle2} />, <div style={segmentStyle3} />]
-    //
-
-    // 190220 - Up to seeing if I can get RainDrop segments to visible render.  Note: problem may be
-    // that the segments are not contained in their own wrapper div. Have to think that through.
-    // Also, maybe I need to have separete segment components that identify when they should be hidden
-    // using terniary operator and that self-update.  Problem then is I need parent to decide when to remove
-    // entire drop from the redux state. And of course that will affect using the indexes of array as ids
-
-    // Refactor state to see if I can get id to be key.  That way, i can look up key quickly for removing from state.
-    // each segment should move on its own
-    // Segment Component which should be hidden if height/width is beyond certain threshold
-
-    // this worked when rainDrops was an array.  Now it's an object.
-    // const drops = this.props.rainDrops.map( (segments) => {
-    //   return <RainDrop segments={segments} />
-    // })
+    // This worked when rainDrops was an array...
+      // const drops = this.props.rainDrops.map( (segments) => {
+      //   return <RainDrop segments={segments} />
+      // })
+    // But it has been updated to be an object with the key being the idNumber. So need this.
     const dropsToRender = []
 
     for (let segmentKey in this.props.rainDrops) {
