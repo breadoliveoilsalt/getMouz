@@ -16,15 +16,17 @@ class RainDrop extends Component {
 
     // Without the "vebosity" and "clones" below, the redux state's rainDrop objects would be updated directly.
     // Now it is updated via a dispatch methods
+    // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
+    console.log("Should be updating!")
     let segmentsToUpdate = [...this.props.segments]
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
     })
-    let rainDropToUpdate = {}
-    rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
-    this.props.updateRainDrop(rainDropToUpdate)
+    // let rainDropToUpdate = {}
+    // rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
+    // this.props.updateRainDrop(rainDropToUpdate)
   }
 
   // This affects how far each segment moves each time it is updated by the parent component
