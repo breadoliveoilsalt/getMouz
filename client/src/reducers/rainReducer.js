@@ -11,11 +11,14 @@ function rainReducer(state = {
       case 'UPDATE_RAIN_DROP':
         return Object.assign({}, state, {rainDrops: {...state.rainDrops, ...action.payload} })
       case 'CLEAR_RAIN_DROP':
+        let stateCopy = Object.assign({}, state)
+        delete stateCopy.rainDrops[action.payload]
+        return stateCopy
         // This makes separate copies of the rainDrop to be deleted and the rest of the rainDrops...
         // 190224 up to here.
         //let idToDelete = action.payload
         // let { idToDelete, ...restOfRainDrops } = state.rainDrops
-        debugger
+
         // ...and then adds back to the rainDrop state the rest of the rainDrops.
         // return Object.assign({}, state, {rainDrops: {restOfRainDrops} })
       case 'CLEAR_RAIN_DROP_FACTORY_AND_RAIN_DROPS':

@@ -18,7 +18,6 @@ class RainDrop extends Component {
     // Now it is updated via a dispatch methods
     // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
-    console.log("Should be updating!")
     let segmentsToUpdate = [...this.props.segments]
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1

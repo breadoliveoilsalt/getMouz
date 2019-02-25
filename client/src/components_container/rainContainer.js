@@ -53,8 +53,12 @@ class RainContainer extends Component {
     const dropsToRender = []
 
     for (let segmentKey in this.props.rainDrops) {
-      let segments = this.props.rainDrops[segmentKey]
-      dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
+      if (this.props.rainDrops[segmentKey][2].bottom < 0) {
+          this.props.clearRainDrop(segmentKey)
+      } else {
+        let segments = this.props.rainDrops[segmentKey]
+        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
+      }
     }
 
     return (
