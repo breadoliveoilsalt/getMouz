@@ -24,9 +24,9 @@ class RainDrop extends Component {
       segment.bottom -= 1
       segment.left -= 0.1
     })
-    // let rainDropToUpdate = {}
-    // rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
-    // this.props.updateRainDrop(rainDropToUpdate)
+    let rainDropToUpdate = {}
+    rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
+    this.props.updateRainDrop(rainDropToUpdate)
   }
 
   // This affects how far each segment moves each time it is updated by the parent component
