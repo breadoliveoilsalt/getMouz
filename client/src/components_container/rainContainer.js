@@ -10,9 +10,9 @@ class RainContainer extends Component {
   componentDidMount() {
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-    // this.timer = setInterval(() => this.renderRainDrop(), 50)
+    this.timer = setInterval(() => this.renderRainDrop(), 500)
     // Was  helpful for testing a one off rainDrop:
-    setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
+    // setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
   }
 
   componentWillUnmount() {
