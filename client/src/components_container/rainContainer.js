@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import '../parentCSS.css'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
 import RainDrop from './rainDropComponent'
@@ -10,7 +9,7 @@ class RainContainer extends Component {
   componentDidMount() {
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-    this.timer = setInterval(() => this.renderRainDrop(), 500)
+    this.timer = setInterval(() => this.renderRainDrop(), 750)
     // Was  helpful for testing a one off rainDrop:
     // setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
   }
