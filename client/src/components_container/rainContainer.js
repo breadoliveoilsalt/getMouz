@@ -25,30 +25,10 @@ class RainContainer extends Component {
     this.props.addRainDrop(drop)
   }
 
+  // 190225
+  //I could have a section here that updates each raindrop in state...makes copy of state, iterates through each one and updates and deletes as /// appropriate, then updates state.
+
   render() {
-
-    // This worked when rainDrops was an array...
-      // const drops = this.props.rainDrops.map( (segments) => {
-      //   return <RainDrop segments={segments} />
-      // })
-    // But it has been updated to be an object with the key being the idNumber. So need this.
-
-// Doesn't work - erases factory
-    // const dropsToRender = []
-    //
-    // for (let segmentKey in this.props.rainDrops) {
-    //   // Check last segment to see if the last segment is now below the floor, and if so, remove from state
-    //   if (this.props.rainDrops[segmentKey][2].bottom < 0) {
-    //     debugger
-    //     this.props.clearRainDrop(segmentKey)
-    //   }
-    //
-    //   // Otherwise, render the rainSegment
-    //   else {
-    //     let segments = this.props.rainDrops[segmentKey]
-    //     dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
-    //   }
-    // }
 
     const dropsToRender = []
 
