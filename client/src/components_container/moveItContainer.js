@@ -8,7 +8,10 @@ class MoveItContainer extends Component {
   render() {
     return (
       <div>
-        You made it to Move It Container
+        <h1 className="text-centered">Make the Cat Move It</h1>
+        <div className="container">
+
+        </div>
       </div>
     )
   }
