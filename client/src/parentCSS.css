@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  margin: auto;
+  margin: 2em auto;
   /* height: 80vh; */
   /* width: 80vh; */
   height: 30em;  /* 16px * 30 = 460px */
@@ -13,6 +13,17 @@
   text-align: center;
 }
 
+#cat-header-image {
+  display: block;
+  margin: auto;
+  height: 8em;
+  width: 8em;
+}
+
+#cat-game-image {
+  height: 3em;
+  width: 3em;
+}
 /* to delete at some point: */
 .dotty {
   position: absolute;
