@@ -17,7 +17,7 @@ class MoveItContainer extends Component {
       <div>
         <h1 className="text-centered">Make the Cat Move It   </h1>
         <img id={"cat-header-image"} className="text-centered" src={catImage} />
-        <div className="container" onMouseOver={this.moveCat}>
+        <div className="container" onKeyDown={this.moveCat} tabIndex="0">
           <img id={"cat-game-image"} src={catImage} style={{}}/>
         </div>
       </div>
