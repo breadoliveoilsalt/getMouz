@@ -23,8 +23,8 @@
 #cat-game-image {
   display: inline-block;
   position: absolute;
-  bottom: 14em;
-  left: 14em;
+  /* bottom: 14em; */
+  /* left: 14em; */
   height: 3em;
   width: 3em;
 }
