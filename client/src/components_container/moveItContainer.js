@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { updateCatPosition } from '../actions/moveItActions'
 import catImage from '../images/cat-small.png'
 
 
 class MoveItContainer extends Component {
 
   moveCat = (e) => {
-    console.log("you key'd down")
+    e.preventDefault()
+
+    // moving up:
+    if (e.keyCode === 38 && this.props.catPosition.bottom < 27) {
+      this.props.updateCatPosition({
+        left: this.props.catPosition.left,
+        bottom: this.props.catPosition.bottom + 1
+      })
+    }
+
     console.log("here's your event", e.which)
+
   }
 // up: 38; down: 40; left: 37; right: 39
 
@@ -17,7 +28,9 @@ class MoveItContainer extends Component {
 
     const catPositionStyle = {
       bottom: `${this.props.catPosition.bottom}em`,
-      left: `${this.props.catPosition.left}em`
+      left: `${this.props.catPosition.left}em`,
+      hight: `3em`,
+      width: `3em`
     }
 
     return (
@@ -41,6 +54,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates))
 
    }
 }

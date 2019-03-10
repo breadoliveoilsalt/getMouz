@@ -3,7 +3,7 @@ function moveItReducer(state = {
   mousePosition: { }
   }, action) {
   switch (action.type) {
-    case 'MOVE_CAT':
+    case 'UPDATE_CAT_POSITION':
       return Object.assign({}, state, {catPosition: action.payload})
     case 'RESTART_CAT_POSITION':
       return {
