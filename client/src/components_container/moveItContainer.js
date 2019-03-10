@@ -9,6 +9,7 @@ class MoveItContainer extends Component {
 
   moveCat = (e) => {
     e.preventDefault()
+    console.log("key", e.keyCode)
 
     // moving up:
     if (e.keyCode === 38 && this.props.catPosition.bottom < 27) {
@@ -17,8 +18,28 @@ class MoveItContainer extends Component {
         bottom: this.props.catPosition.bottom + 1
       })
     }
+    // moving down:
+    if (e.keyCode === 40 && this.props.catPosition.bottom > 0) {
+      this.props.updateCatPosition({
+        left: this.props.catPosition.left,
+        bottom: this.props.catPosition.bottom - 1
+      })
+    }
+    // moving left:
+    if (e.keyCode === 37 && this.props.catPosition.left > 0) {
+      this.props.updateCatPosition({
+        left: this.props.catPosition.left - 1,
+        bottom: this.props.catPosition.bottom
+      })
+    }
+    // moving right:
+    if (e.keyCode === 39 && this.props.catPosition.left < 27) {
+      this.props.updateCatPosition({
+        left: this.props.catPosition.left + 1,
+        bottom: this.props.catPosition.bottom
+      })
+    }
 
-    console.log("here's your event", e.which)
 
   }
 // up: 38; down: 40; left: 37; right: 39
