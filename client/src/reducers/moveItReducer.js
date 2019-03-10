@@ -1,12 +1,12 @@
 function moveItReducer(state = {
-  left: 14,
-  bottom: 14
+  catPosition: {left: 14, bottom: 14},
+  mousePosition: { }
   }, action) {
   switch (action.type) {
     case 'MOVE_CAT':
-      return Object.assign({}, state, action.payload)
+      return Object.assign({}, state, {catPosition: action.payload})
     case 'RESTART_CAT_POSITION':
-      return { 
+      return {
         left: 14,
         bottom: 14
         }
@@ -14,3 +14,5 @@ function moveItReducer(state = {
       return state
   }
 }
+
+export default moveItReducer

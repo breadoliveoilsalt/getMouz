@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
-import catImage from '../images/cat-small.png'
 
+import catImage from '../images/cat-small.png'
 
 
 class MoveItContainer extends Component {
@@ -26,5 +25,20 @@ class MoveItContainer extends Component {
 
 }
 
-export default MoveItContainer
+const mapStateToProps = (state) => {
+  return {
+    catPosition: state.moveIt.catPosition,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoveItContainer)
+
+
+// export default MoveItContainer
 // export default connect(mapStateToProps, mapDispatchToProps)(MoveItContainer)
