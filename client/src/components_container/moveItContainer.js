@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition } from '../actions/moveItActions'
+import { startGame, updateCatPosition } from '../actions/moveItActions'
 import catImage from '../images/cat-small.png'
 
 
@@ -39,11 +39,11 @@ class MoveItContainer extends Component {
         bottom: this.props.catPosition.bottom
       })
     }
-
-
   }
-// up: 38; down: 40; left: 37; right: 39
 
+// up: 38; down: 40; left: 37; right: 39
+    //<img id={"cat-header-image"} className="text-centered" src={catImage} />
+  //{this.props.gameStarted ? }
 
   render() {
 
@@ -56,27 +56,30 @@ class MoveItContainer extends Component {
 
     return (
       <div>
-        <h1 className="text-centered">Make the Cat Move It   </h1>
-        <img id={"cat-header-image"} className="text-centered" src={catImage} />
+        <h1 className="text-centered">Make the Cat Move It</h1>
         <div className="container" onKeyDown={this.moveCat} tabIndex="0">
-          <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>
+        {this.props.gameStarted ? ( <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>  ) :
+              ( <a onClick={this.props.startGame} style={{color: "white"}}>Click here to start game </a> )  }
+
+
         </div>
       </div>
     )
-  }
 
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
     catPosition: state.moveIt.catPosition,
+    gameStarted: state.moveIt.gameStarted
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates))
-
+    updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
+    startGame: () => dispatch(startGame())
    }
 }
 

@@ -7,3 +7,9 @@ export function updateCatPosition(coordinates) {
     payload: coordinates
   }
 }
+
+export function startGame() {
+  return {
+    type: 'START_GAME'
+  }
+}
