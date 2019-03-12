@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 
 class GameStartedContainer extends Component {
 
+  // componentDidMount() {
+  //   ReactDOM.findDOMNode(this.refs.activeGameContainer).focus()
+  // }
+
+// In middle of trying to get tthings to focus on this.
   render() {
 
     const catPositionStyle = {
@@ -13,7 +18,7 @@ class GameStartedContainer extends Component {
     }
 
     return (
-      <div className="container" onKeyDown={this.props.moveCat} tabIndex="0">
+      <div autoFocus ref="activeGameContainer" className="container" onKeyDown={this.props.moveCat} tabIndex="0">
         <img id={"cat-game-image"} src={this.props.catImage} style={catPositionStyle}/>
       </div>
     )
