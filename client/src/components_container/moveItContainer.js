@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { startGame, updateCatPosition } from '../actions/moveItActions'
+import GameNotStartedContainer from './gameNotStartedContainer'
 import catImage from '../images/cat-small.png'
 
 
@@ -44,27 +45,34 @@ class MoveItContainer extends Component {
 // up: 38; down: 40; left: 37; right: 39
     //<img id={"cat-header-image"} className="text-centered" src={catImage} />
   //{this.props.gameStarted ? }
+        // ( <a onClick={this.props.startGame} style={{color: "white"}}>Click here to start game </a> )  }
 
   render() {
 
-    const catPositionStyle = {
-      bottom: `${this.props.catPosition.bottom}em`,
-      left: `${this.props.catPosition.left}em`,
-      hight: `3em`,
-      width: `3em`
+    if (this.props.gameStarted) {
+
+      const catPositionStyle = {
+        bottom: `${this.props.catPosition.bottom}em`,
+        left: `${this.props.catPosition.left}em`,
+        hight: `3em`,
+        width: `3em`
+      }
+
+      return (
+        <div>
+          <h1 className="text-centered">Make the Cat Move It</h1>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h1 className="text-centered">Make the Cat Move It</h1>
+          <GameNotStartedContainer startGame={this.props.startGame} catImage={catImage}/>
+        </div>
+      )
     }
 
-    return (
-      <div>
-        <h1 className="text-centered">Make the Cat Move It</h1>
-        <div className="container" onKeyDown={this.moveCat} tabIndex="0">
-        {this.props.gameStarted ? ( <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>  ) :
-              ( <a onClick={this.props.startGame} style={{color: "white"}}>Click here to start game </a> )  }
 
-
-        </div>
-      </div>
-    )
 
   }
 }
