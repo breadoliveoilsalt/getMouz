@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { startGame, updateCatPosition } from '../actions/moveItActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
+import GameStartedContainer from './gameStartedContainer'
 import catImage from '../images/cat-small.png'
 
 
@@ -51,16 +52,12 @@ class MoveItContainer extends Component {
 
     if (this.props.gameStarted) {
 
-      const catPositionStyle = {
-        bottom: `${this.props.catPosition.bottom}em`,
-        left: `${this.props.catPosition.left}em`,
-        hight: `3em`,
-        width: `3em`
-      }
+
 
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
+          <GameStartedContainer moveCat={this.moveCat} catImage={catImage} catPosition={this.props.catPosition}/>
         </div>
       )
     } else {
