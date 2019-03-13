@@ -9,6 +9,10 @@ import catImage from '../images/cat-small.png'
 
 class MoveItContainer extends Component {
 
+  componentWillUnmount() {
+    // up to add action creator to restart game when another link is clicked 
+  }
+
   moveCat = (e) => {
     e.preventDefault()
     console.log("key", e.keyCode)
@@ -43,16 +47,9 @@ class MoveItContainer extends Component {
     }
   }
 
-// up: 38; down: 40; left: 37; right: 39
-    //<img id={"cat-header-image"} className="text-centered" src={catImage} />
-  //{this.props.gameStarted ? }
-        // ( <a onClick={this.props.startGame} style={{color: "white"}}>Click here to start game </a> )  }
-
   render() {
 
     if (this.props.gameStarted) {
-
-
 
       return (
         <div>
@@ -69,8 +66,6 @@ class MoveItContainer extends Component {
       )
     }
 
-
-
   }
 }
 
@@ -85,11 +80,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
     startGame: () => dispatch(startGame())
+    // up to add restart game
    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoveItContainer)
-
-
-// export default MoveItContainer
-// export default connect(mapStateToProps, mapDispatchToProps)(MoveItContainer)

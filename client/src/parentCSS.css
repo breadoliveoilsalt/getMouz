@@ -13,11 +13,11 @@
   text-align: center;
 }
 
-#cat-header-image {
+#cat-intro-image {
   display: block;
-  margin: auto;
-  height: 8em;
-  width: 8em;
+  margin: 5em auto;
+  /* height: 8em; */
+  /* width: 8em; */
 }
 
 #cat-game-image {

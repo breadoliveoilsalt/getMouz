@@ -3,19 +3,11 @@ import { connect } from 'react-redux'
 
 class GameStartedContainer extends Component {
 
-  // componentDidMount() {
-  //   ReactDOM.findDOMNode(this.refs.activeGameContainer).focus()
-  // }
-
-  // autoFocus not seem to work
-
-
-// In middle of trying to get tthings to focus on this.
 
   componentDidMount() {
     this._gameContainer.focus()
   }
-  
+
   render() {
 
     const catPositionStyle = {
