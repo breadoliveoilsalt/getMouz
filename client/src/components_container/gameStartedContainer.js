@@ -7,7 +7,15 @@ class GameStartedContainer extends Component {
   //   ReactDOM.findDOMNode(this.refs.activeGameContainer).focus()
   // }
 
+  // autoFocus not seem to work
+
+
 // In middle of trying to get tthings to focus on this.
+
+  componentDidMount() {
+    this._gameContainer.focus()
+  }
+  
   render() {
 
     const catPositionStyle = {
@@ -18,7 +26,7 @@ class GameStartedContainer extends Component {
     }
 
     return (
-      <div autoFocus ref="activeGameContainer" className="container" onKeyDown={this.props.moveCat} tabIndex="0">
+      <div ref={d => (this._gameContainer = d)} className="container" onKeyDown={this.props.moveCat} tabIndex="0">
         <img id={"cat-game-image"} src={this.props.catImage} style={catPositionStyle}/>
       </div>
     )
