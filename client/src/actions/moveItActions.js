@@ -13,3 +13,10 @@ export function startGame() {
     type: 'START_GAME'
   }
 }
+
+export setMousePosition(coordinates) {
+  return {
+    type: 'SET_MOUSE_POSITION',
+    payload: coordinates
+  }
+}

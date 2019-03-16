@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition } from '../actions/moveItActions'
 import catImage from '../images/cat-small.png'
 
 class GameStartedContainer extends Component {
@@ -10,6 +10,18 @@ class GameStartedContainer extends Component {
   componentDidMount() {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
+    // this.mouseTimer = setInterval(() => this.generateMouse(), 1000)
+  }
+
+  componentWillUnmount() {
+    // clearInterval(this.mouseTimer);
+  }
+
+  // upto here -- in middle of trying to get mouse coordinates to appear in reducer
+  mouseTimer = () => {
+    let mouseBottom = Math.floor(Math.random() * (28) + 1)
+    let mouseLeft = Math.floor(Math.random() * (28) + 1)
+    setMousePosition({left: mouseleft, bottom: mouseBottom})
   }
 
   moveCat = (e) => {
@@ -76,6 +88,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
+    setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates))
     // startGame: () => dispatch(startGame())
    }
 }
