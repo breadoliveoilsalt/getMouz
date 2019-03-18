@@ -7,6 +7,7 @@ function moveItReducer(state = {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
     case 'UPDATE_CAT_POSITION':
+      debugger
       return Object.assign({}, state, {catPosition: action.payload})
     case 'RESTART_CAT_POSITION':
       // clean this up!
@@ -15,6 +16,7 @@ function moveItReducer(state = {
         bottom: 14
         }})
     case 'SET_MOUSE_POSITION':
+      debugger
       return Object.assign({}, state, {mousePosition: action.payload})
     default:
       return state

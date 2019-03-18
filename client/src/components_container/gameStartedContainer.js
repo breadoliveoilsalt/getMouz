@@ -11,17 +11,18 @@ class GameStartedContainer extends Component {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
     // this.mouseTimer = setInterval(() => this.generateMouse(), 1000)
+    setTimeout(() => this.generateMouse(), 2000)
   }
 
   componentWillUnmount() {
-    // clearInterval(this.mouseTimer);
+    clearInterval(this.mouseTimer);
   }
 
   // upto here -- in middle of trying to get mouse coordinates to appear in reducer
-  mouseTimer = () => {
+  generateMouse = () => {
     let mouseBottom = Math.floor(Math.random() * (28) + 1)
     let mouseLeft = Math.floor(Math.random() * (28) + 1)
-    setMousePosition({left: mouseleft, bottom: mouseBottom})
+    setMousePosition({left: mouseLeft, bottom: mouseBottom})
   }
 
   moveCat = (e) => {

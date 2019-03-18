@@ -14,7 +14,7 @@ export function startGame() {
   }
 }
 
-export setMousePosition(coordinates) {
+export function setMousePosition(coordinates) {
   return {
     type: 'SET_MOUSE_POSITION',
     payload: coordinates
