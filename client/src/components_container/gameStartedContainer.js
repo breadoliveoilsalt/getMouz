@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { updateCatPosition, setMousePosition } from '../actions/moveItActions'
 import catImage from '../images/cat-small.png'
+import mouseImage from '../images/mouse.png'
 
 class GameStartedContainer extends Component {
 
@@ -26,7 +27,6 @@ class GameStartedContainer extends Component {
 
   moveCat = (e) => {
     e.preventDefault()
-    console.log("key", e.keyCode)
 
     // moving up:
     if (e.keyCode === 38 && this.props.catPosition.bottom < 27) {
@@ -63,15 +63,34 @@ class GameStartedContainer extends Component {
 
     // put if mouse logic here
     const catPositionStyle = {
+      display: `inline-block`,
+      position: `absolute`,
       bottom: `${this.props.catPosition.bottom}em`,
       left: `${this.props.catPosition.left}em`,
       hight: `3em`,
       width: `3em`
     }
 
+    let mouse = null
+
+    if (this.props.mousePosition) {
+
+      const mousePositionStyle = {
+        display: `inline-block`,
+        position: `absolute`,
+        bottom: `${this.props.mousePosition.bottom}em`,
+        left: `${this.props.mousePosition.left}em`,
+        hight: `3em`,
+        width: `3em`
+      }
+
+      mouse = <img id={"mouse-game-image"} src={mouseImage} style={mousePositionStyle}/>
+    }
+
     return (
       <div ref={d => (this._gameContainer = d)} className="container" onKeyDown={this.moveCat} tabIndex="0">
         <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>
+        { mouse }
       </div>
     )
 

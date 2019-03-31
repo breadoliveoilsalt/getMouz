@@ -1,7 +1,7 @@
 function moveItReducer(state = {
   gameStarted: false,
   catPosition: {left: 14, bottom: 14},
-  mousePosition: { }
+  mousePosition: null
   }, action) {
   switch (action.type) {
     case 'START_GAME':
