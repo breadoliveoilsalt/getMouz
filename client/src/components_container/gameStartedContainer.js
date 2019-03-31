@@ -6,7 +6,6 @@ import catImage from '../images/cat-small.png'
 
 class GameStartedContainer extends Component {
 
-
   componentDidMount() {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
@@ -18,7 +17,7 @@ class GameStartedContainer extends Component {
     clearInterval(this.mouseTimer);
   }
 
-  // upto here -- in middle of trying to get mouse coordinates to appear in reducer
+  // 190318 - upto trying to figure out why cat movements are not updating in the reducer. So odd.
   generateMouse = () => {
     let mouseBottom = Math.floor(Math.random() * (28) + 1)
     let mouseLeft = Math.floor(Math.random() * (28) + 1)

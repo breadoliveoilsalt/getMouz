@@ -7,7 +7,6 @@ function moveItReducer(state = {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
     case 'UPDATE_CAT_POSITION':
-      debugger
       return Object.assign({}, state, {catPosition: action.payload})
     case 'RESTART_CAT_POSITION':
       // clean this up!
