@@ -81,6 +81,7 @@ class GameStartedContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     catPosition: state.moveIt.catPosition,
+    mousePosition: state.moveIt.mousePosition
     // gameStarted: state.moveIt.gameStarted
   }
 }

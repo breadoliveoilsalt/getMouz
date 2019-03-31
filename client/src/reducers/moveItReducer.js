@@ -15,7 +15,6 @@ function moveItReducer(state = {
         bottom: 14
         }})
     case 'SET_MOUSE_POSITION':
-      debugger
       return Object.assign({}, state, {mousePosition: action.payload})
     default:
       return state
