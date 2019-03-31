@@ -21,7 +21,7 @@ class GameStartedContainer extends Component {
   generateMouse = () => {
     let mouseBottom = Math.floor(Math.random() * (28) + 1)
     let mouseLeft = Math.floor(Math.random() * (28) + 1)
-    setMousePosition({left: mouseLeft, bottom: mouseBottom})
+    this.props.setMousePosition({left: mouseLeft, bottom: mouseBottom})
   }
 
   moveCat = (e) => {
