@@ -58,7 +58,9 @@ class GameStartedContainer extends Component {
       })
     }
 
-    this.checkIfGameWon()
+    if (this.props.mousePosition) {
+      this.checkIfGameWon()
+    }
   }
 
   checkIfGameWon = () => {
