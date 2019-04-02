@@ -19,13 +19,18 @@ class RainDrop extends Component {
     // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
     let segmentsToUpdate = [...this.props.segments]
+    // could have just used map?
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
     })
-    let rainDropToUpdate = {}
-    rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
-    this.props.updateRainDrop(rainDropToUpdate)
+    if (segmentsToUpdate[2].bottom < 0) {
+      this.props.clearRainDrop(this.props.idNumber)
+    } else {
+      let rainDropToUpdate = {}
+      rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
+      this.props.updateRainDrop(rainDropToUpdate)
+    }
   }
 
   // This affects how far each segment moves each time it is updated by the parent component

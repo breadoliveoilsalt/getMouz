@@ -24,11 +24,12 @@ class RainContainer extends Component {
     let drop = this.props.rainDropFactory.createRainDrop()
     this.props.addRainDrop(drop)
     // Testing out cleaning rainDrops here rather than in render()
-    for (let segmentKey in this.props.rainDrops) {
-      if (this.props.rainDrops[segmentKey][2].bottom < 0) {
-          this.props.clearRainDrop(segmentKey)
-        }
-    }
+    // 190402 - below works but moving to raindrop segment itself
+    // for (let segmentKey in this.props.rainDrops) {
+    //   if (this.props.rainDrops[segmentKey][2].bottom < 0) {
+    //       this.props.clearRainDrop(segmentKey)
+    //     }
+    // }
   }
 
   // 190225
@@ -53,7 +54,7 @@ class RainContainer extends Component {
 
     for (let segmentKey in this.props.rainDrops) {
         let segments = this.props.rainDrops[segmentKey]
-        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
+        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop}/>)
     }
 
     return (

@@ -11,6 +11,8 @@ class MoveItContainer extends Component {
 
   componentWillUnmount() {
     // up to add action creator to restart game when another link is clicked
+    // also: probably best plan to test if game is over is to have rain drop check itself whether it is somwhere in cat
+    // box...but the problem then is that there are multiple segments to check
   }
 
   render() {
