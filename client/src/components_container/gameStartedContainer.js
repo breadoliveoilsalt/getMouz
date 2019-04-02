@@ -18,7 +18,8 @@ class GameStartedContainer extends Component {
     clearInterval(this.mouseTimer);
   }
 
-  // 190318 - upto trying to figure out why cat movements are not updating in the reducer. So odd.
+  // 190331 - see git log. ALSO: add stuff so cat returns to normal position and mouse disappears and game is restarted if we click another link
+
   generateMouse = () => {
     let mouseBottom = Math.floor(Math.random() * (28) + 1)
     let mouseLeft = Math.floor(Math.random() * (28) + 1)
