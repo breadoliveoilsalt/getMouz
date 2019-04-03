@@ -20,3 +20,9 @@ export function setMousePosition(coordinates) {
     payload: coordinates
   }
 }
+
+export function restartGame() {
+  return {
+    type: 'RESTART_GAME'
+  }
+}

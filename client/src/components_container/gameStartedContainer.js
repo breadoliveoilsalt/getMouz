@@ -10,7 +10,6 @@ class GameStartedContainer extends Component {
   componentDidMount() {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
-    // this.mouseTimer = setInterval(() => this.generateMouse(), 1000)
     setTimeout(() => this.generateMouse(), 2000)
   }
 

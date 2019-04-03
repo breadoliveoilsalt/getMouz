@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { startGame } from '../actions/moveItActions'
+import { startGame, restartGame } from '../actions/moveItActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import catImage from '../images/cat-small.png'
@@ -10,6 +10,7 @@ import catImage from '../images/cat-small.png'
 class MoveItContainer extends Component {
 
   componentWillUnmount() {
+    this.props.restartGame()
     // up to add action creator to restart game when another link is clicked
     // also: probably best plan to test if game is over is to have rain drop check itself whether it is somwhere in cat
     // box...but the problem then is that there are multiple segments to check
@@ -46,7 +47,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startGame: () => dispatch(startGame())
+    startGame: () => dispatch(startGame()),
+    restartGame: () => dispatch(restartGame())
     // up to add restart game
    }
 }
