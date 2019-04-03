@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition, gameWon } from '../actions/moveItActions'
 import catImage from '../images/cat-small.png'
 import mouseImage from '../images/mouse.png'
 
@@ -16,8 +16,6 @@ class GameStartedContainer extends Component {
   componentWillUnmount() {
     clearInterval(this.mouseTimer);
   }
-
-  // 190331 - see git log. ALSO: add stuff so cat returns to normal position and mouse disappears and game is restarted if we click another link
 
   generateMouse = () => {
     let mouseBottom = Math.floor(Math.random() * (28) + 1)
@@ -58,7 +56,10 @@ class GameStartedContainer extends Component {
     }
 
     if (this.props.mousePosition) {
-      this.checkIfGameWon()
+      if (this.checkIfGameWon()) {
+        this.props.displayGameWon()
+
+      }
     }
   }
 
@@ -67,9 +68,7 @@ class GameStartedContainer extends Component {
     let xOverlap = thereIsOverlap(this.props.catPosition.left, 3, this.props.mousePosition.left, 3)
     let yOverlap = thereIsOverlap(this.props.catPosition.bottom, 3, this.props.mousePosition.bottom, 3)
 
-    if (xOverlap && yOverlap) {
-      console.log("Game won!")
-    }
+    return xOverlap && yOverlap
 
     function thereIsOverlap(start1, length1, start2, length2) {
       let highestStartPoint = Math.max(start1, start2)
@@ -96,6 +95,8 @@ class GameStartedContainer extends Component {
       hight: `3em`,
       width: `3em`
     }
+
+
 
     let mouse = null
 
@@ -134,7 +135,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
-    setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates))
+    setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates)),
+    displayGameWon: () => dispatch(gameWon())
     // startGame: () => dispatch(startGame())
    }
 }

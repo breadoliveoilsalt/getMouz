@@ -26,3 +26,15 @@ export function restartGame() {
     type: 'RESTART_GAME'
   }
 }
+
+export function gameWon() {
+  return {
+    type: 'GAME_WON'
+  }
+}
+
+export function gameLost() {
+  return {
+    type: 'GAME_LOST'
+  }
+}

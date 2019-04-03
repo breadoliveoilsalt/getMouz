@@ -11,19 +11,26 @@ class MoveItContainer extends Component {
 
   componentWillUnmount() {
     this.props.restartGame()
-    // up to add action creator to restart game when another link is clicked
-    // also: probably best plan to test if game is over is to have rain drop check itself whether it is somwhere in cat
-    // box...but the problem then is that there are multiple segments to check
+  }
+
+  gameOver() {
+    return this.props.gameWon || this.props.gameLost
   }
 
   render() {
 
-    if (this.props.gameStarted) {
+    if (this.props.gameStarted && !this.gameOver()) {
 
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
           <GameStartedContainer />
+        </div>
+      )
+    } else if (this.props.gameStarted && this.gameOver()){
+      return (
+        <div>
+          Game Over!
         </div>
       )
     } else {
@@ -41,7 +48,9 @@ class MoveItContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     catPosition: state.moveIt.catPosition,
-    gameStarted: state.moveIt.gameStarted
+    gameStarted: state.moveIt.gameStarted,
+    gameWon: state.moveIt.gameWon,
+    gameLost: state.moveIt.gameLost
   }
 }
 
