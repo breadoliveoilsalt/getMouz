@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { startGame, restartGame } from '../actions/moveItActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
+import GameWonContainer from './gameWonContainer'
 import catImage from '../images/cat-small.png'
 
 
@@ -30,7 +31,7 @@ class MoveItContainer extends Component {
     } else if (this.props.gameStarted && this.gameOver()){
       return (
         <div>
-          Game Over!
+          <GameWonContainer />
         </div>
       )
     } else {
