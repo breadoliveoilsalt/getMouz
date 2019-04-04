@@ -8,9 +8,17 @@ function moveItReducer(state = {
   switch (action.type) {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
-    case 'RESTART_GAME':
+    case 'RESET_GAME':
       return Object.assign({}, { // return state?
         gameStarted: false,
+        gameWon: false,
+        gameLost: false,
+        catPosition: {left: 14, bottom: 14},
+        mousePosition: null
+        })
+    case 'RESTART_GAME': 
+      return Object.assign({}, {
+        gameStarted: true,
         gameWon: false,
         gameLost: false,
         catPosition: {left: 14, bottom: 14},

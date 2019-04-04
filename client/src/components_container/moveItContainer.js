@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { startGame, restartGame } from '../actions/moveItActions'
+import { startGame, resetGame, restartGame } from '../actions/moveItActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
@@ -11,7 +11,7 @@ import catImage from '../images/cat-small.png'
 class MoveItContainer extends Component {
 
   componentWillUnmount() {
-    this.props.restartGame()
+    this.props.resetGame()
   }
 
   gameOver() {
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     startGame: () => dispatch(startGame()),
+    resetGame: () => dispatch(resetGame()),
     restartGame: () => dispatch(restartGame())
     // up to add restart game
    }

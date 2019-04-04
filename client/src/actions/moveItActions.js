@@ -21,6 +21,12 @@ export function setMousePosition(coordinates) {
   }
 }
 
+export function resetGame() {
+  return {
+    type: 'RESET_GAME'
+  }
+}
+
 export function restartGame() {
   return {
     type: 'RESTART_GAME'
