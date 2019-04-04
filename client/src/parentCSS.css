@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-#cat-intro-image {
+.cat-menu-image {
   display: block;
   margin: 5em auto;
   /* height: 8em; */

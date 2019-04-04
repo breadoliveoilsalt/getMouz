@@ -11,7 +11,7 @@ class GameNotStartedContainer extends Component {
 
           <a onClick={this.props.startGame}>
 
-            <img id="cat-intro-image" src={gameStartLogo} />
+            <img className="cat-menu-image" src={gameStartLogo} />
 
           </a>
         </div>

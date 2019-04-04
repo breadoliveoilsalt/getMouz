@@ -1,13 +1,13 @@
 import React from 'react'
+import gameWonImage from '../images/game-won-image.png'
 
-const GameWonContainer = () => {
+const GameWonContainer = (props) => {
   return(
+
       <div className="container" tabIndex="0">
 
-          <a>
-
-            Game Won!
-
+          <a onClick={props.restartGame}>
+            <img className="cat-menu-image" src={gameWonImage} />
           </a>
         </div>
     )
