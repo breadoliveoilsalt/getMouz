@@ -24,7 +24,7 @@ class RainDrop extends Component {
       segment.bottom -= 1
       segment.left -= 0.1
     })
-    if (segmentsToUpdate[2].bottom < 0) {
+    if (segmentsToUpdate[2].bottom < 0 || segmentsToUpdate[2].left < 0) {
       this.props.clearRainDrop(this.props.idNumber)
     } else {
       let rainDropToUpdate = {}
