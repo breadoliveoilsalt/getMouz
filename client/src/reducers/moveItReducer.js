@@ -3,7 +3,8 @@ function moveItReducer(state = {
   gameWon: false,
   gameLost: false,
   catPosition: {left: 14, bottom: 1},
-  mousePosition: null
+  mousePosition: null,
+  level: 1
   }, action) {
   switch (action.type) {
     case 'START_GAME':
@@ -14,7 +15,8 @@ function moveItReducer(state = {
         gameWon: false,
         gameLost: false,
         catPosition: {left: 14, bottom: 1},
-        mousePosition: null
+        mousePosition: null,
+        level: 1
         })
     case 'RESTART_GAME':
       return Object.assign({}, {
@@ -22,7 +24,8 @@ function moveItReducer(state = {
         gameWon: false,
         gameLost: false,
         catPosition: {left: 14, bottom: 1},
-        mousePosition: null
+        mousePosition: null,
+        level: 1
         })
     case 'GAME_WON':
       return Object.assign({}, state, {gameWon: true})
