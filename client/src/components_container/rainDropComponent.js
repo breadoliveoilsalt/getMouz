@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class RainDrop extends Component {
 
@@ -70,5 +71,18 @@ class RainDrop extends Component {
   }
 }
 
+// I added mapStateToProps directly here since this is already a complicated component and I don't want cat cat position
+// to be passed down only when dispatch is called above; I want cat position to be available all the time.
+const mapStateToProps = (state) => {
+  return {
+    catPosition: state.moveIt.catPosition,
+  }
+}
 
-export default RainDrop
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RainDrop)

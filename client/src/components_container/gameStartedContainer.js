@@ -132,7 +132,7 @@ class GameStartedContainer extends Component {
 
     for (let segmentKey in this.props.rainDrops) {
         let segments = this.props.rainDrops[segmentKey]
-        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop}/>)
+        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop} />)
     }
 
     return (
