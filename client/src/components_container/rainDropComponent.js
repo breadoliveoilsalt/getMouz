@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { gameLost } from '../actions/moveItActions'
 
 class RainDrop extends Component {
 
@@ -24,6 +25,15 @@ class RainDrop extends Component {
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
+
+      let xOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.left, 3, segment.left, .2)
+      let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
+
+      if (xOverlapWithCat && yOverlapWithCat) {
+
+      }
+
+
     })
     if (segmentsToUpdate[2].bottom < 0 || segmentsToUpdate[2].left < 0) {
       this.props.clearRainDrop(this.props.idNumber)
@@ -81,7 +91,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    gameLost: () => dispatch(gameLost())
    }
 }
 

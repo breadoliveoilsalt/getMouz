@@ -1,18 +1,17 @@
 import React from 'react'
-import gameWonImage from '../images/game-won-image.png'
 import gameLostImage from '../images/game-lost-image.png'
 
-const GameWonContainer = (props) => {
+const GameLostContainer = (props) => {
   return(
 
       <div className="container" tabIndex="0">
 
           <a onClick={props.restartGame}>
-            <img className="cat-menu-image" src={gameWonImage} />
+            <img className="cat-menu-image" src={gameLostImage} />
           </a>
         </div>
     )
 
 }
 
-export default GameWonContainer
+export default GameLostContainer

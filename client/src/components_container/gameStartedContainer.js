@@ -72,7 +72,7 @@ class GameStartedContainer extends Component {
 
     if (this.props.mousePosition) {
       if (this.checkIfGameWon()) {
-        this.props.displayGameWon()
+        this.props.gameWon()
 
       }
     }
@@ -132,7 +132,7 @@ class GameStartedContainer extends Component {
 
     for (let segmentKey in this.props.rainDrops) {
         let segments = this.props.rainDrops[segmentKey]
-        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop} />)
+        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop} thereIsOverlap={this.thereIsOverlap}/>)
     }
 
     return (
@@ -160,7 +160,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
     setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates)),
-    displayGameWon: () => dispatch(gameWon()),
+    gameWon: () => dispatch(gameWon()),
     addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
     addRainDrop: (drop) => dispatch(addRainDrop(drop)),
     updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
