@@ -38,6 +38,8 @@ function moveItReducer(state = {
         }})
     case 'SET_MOUSE_POSITION':
       return Object.assign({}, state, {mousePosition: action.payload})
+    case 'GAME_LOST':
+      return Object.assign({}, state, {gameLost: true})
     default:
       return state
   }

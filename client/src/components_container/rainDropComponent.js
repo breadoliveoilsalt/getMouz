@@ -25,15 +25,6 @@ class RainDrop extends Component {
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
-
-      let xOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.left, 3, segment.left, .2)
-      let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
-
-      if (xOverlapWithCat && yOverlapWithCat) {
-
-      }
-
-
     })
     if (segmentsToUpdate[2].bottom < 0 || segmentsToUpdate[2].left < 0) {
       this.props.clearRainDrop(this.props.idNumber)
@@ -41,9 +32,24 @@ class RainDrop extends Component {
       let rainDropToUpdate = {}
       rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
       this.props.updateRainDrop(rainDropToUpdate)
+      this.checkIfGameLost()
+
     }
   }
 
+  checkIfGameLost() {
+    this.props.segments.forEach( (segment) => {
+      let xOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.left, 3, segment.left, .2)
+      let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
+
+      if (xOverlapWithCat && yOverlapWithCat) {
+        this.props.gameLost()
+        // console.log("game lost!")
+      }
+
+    })
+
+  }
   // This affects how far each segment moves each time it is updated by the parent component
   getRandomTiming() {
     return Math.floor(Math.random() * (1500 - 250 + 1) + 250)

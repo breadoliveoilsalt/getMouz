@@ -5,6 +5,7 @@ import { startGame, resetGame, restartGame } from '../actions/moveItActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
+import GameLostContainer from './gameLostContainer'
 import catImage from '../images/cat-small.png'
 
 
@@ -28,11 +29,18 @@ class MoveItContainer extends Component {
           <GameStartedContainer />
         </div>
       )
-    } else if (this.props.gameStarted && this.gameOver()){
+    } else if (this.props.gameStarted && this.props.gameWon) {
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
           <GameWonContainer restartGame={this.props.restartGame} />
+        </div>
+      )
+    } else if (this.props.gameStarted && this.props.gameLost) {
+      return (
+        <div>
+          <h1 className="text-centered">Make the Cat Move It</h1>
+          <GameLostContainer restartGame={this.props.restartGame} />
         </div>
       )
     } else {
