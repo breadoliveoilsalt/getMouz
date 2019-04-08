@@ -43,7 +43,12 @@ class RainDrop extends Component {
       let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
 
       if (xOverlapWithCat && yOverlapWithCat) {
-        setTimeout(this.props.gameLost, 750)
+        segment.backgroundColor = "red"
+        // segment.height = 2
+        // segment.width = 3
+        this.render()
+        clearInterval(this.timer)// -- this only stops the rain drop that caused the game to be lost
+        setTimeout(this.props.gameLost, 1000)
         // console.log("game lost!")
       }
 
