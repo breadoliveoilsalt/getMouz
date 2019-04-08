@@ -80,21 +80,21 @@ class GameStartedContainer extends Component {
 
   checkIfGameWon() {
 
-    let xOverlap = thereIsOverlap(this.props.catPosition.left, 3, this.props.mousePosition.left, 3)
-    let yOverlap = thereIsOverlap(this.props.catPosition.bottom, 3, this.props.mousePosition.bottom, 3)
+    let xOverlap = this.thereIsOverlap(this.props.catPosition.left, 3, this.props.mousePosition.left, 3)
+    let yOverlap = this.thereIsOverlap(this.props.catPosition.bottom, 3, this.props.mousePosition.bottom, 3)
 
     return xOverlap && yOverlap
 
-    function thereIsOverlap(start1, length1, start2, length2) {
-      let highestStartPoint = Math.max(start1, start2)
-      let lowestEndPoint = Math.min(start1 + length1, start2 + length2)
+  }
 
-      if (highestStartPoint <= lowestEndPoint) {
-        return true
-      } else {
-        return false
-      }
+  thereIsOverlap(start1, length1, start2, length2) {
+    let highestStartPoint = Math.max(start1, start2)
+    let lowestEndPoint = Math.min(start1 + length1, start2 + length2)
 
+    if (highestStartPoint <= lowestEndPoint) {
+      return true
+    } else {
+      return false
     }
 
   }
