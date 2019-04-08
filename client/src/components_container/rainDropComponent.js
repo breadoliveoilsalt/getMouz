@@ -43,7 +43,7 @@ class RainDrop extends Component {
       let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
 
       if (xOverlapWithCat && yOverlapWithCat) {
-        this.props.gameLost()
+        setTimeout(this.props.gameLost, 750)
         // console.log("game lost!")
       }
 

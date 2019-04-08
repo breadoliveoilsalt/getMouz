@@ -21,7 +21,7 @@ class GameStartedContainer extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.mouseTimer);
+    // clearTimeout(this.mouseTimer); -- apparently you don't really need this
     clearInterval(this.rainTimer);
     this.props.clearRainDropFactoryAndRainDrops()
   }
@@ -72,8 +72,7 @@ class GameStartedContainer extends Component {
 
     if (this.props.mousePosition) {
       if (this.checkIfGameWon()) {
-        this.props.gameWon()
-
+        setTimeout(this.props.gameWon, 750)
       }
     }
   }
