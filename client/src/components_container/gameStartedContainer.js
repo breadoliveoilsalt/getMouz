@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition, gameWon } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition, gameWon, catchMouse } from '../actions/moveItActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
+import MouseComponent from './mouseComponent'
 import catImage from '../images/cat-small.png'
-import mouseImage from '../images/mouse.png'
+
 
 class GameStartedContainer extends Component {
 
@@ -13,8 +14,8 @@ class GameStartedContainer extends Component {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
 
-    this.mouseTimer = setTimeout(() => this.generateMouse(), 5000)
-
+    // this.mouseTimer = setTimeout(() => this.generateMouse(), 5000)
+    this.generateMouse()
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
 
@@ -77,6 +78,7 @@ class GameStartedContainer extends Component {
 
     if (this.props.mousePosition) {
       if (this.checkIfGameWon()) {
+        catchMouse()
         setTimeout(this.props.gameWon, 1000)
       }
     }
@@ -116,22 +118,6 @@ class GameStartedContainer extends Component {
 
     let cat = <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>
 
-    let mouse = null
-
-    if (this.props.mousePosition) {
-
-      const mousePositionStyle = {
-        display: `inline-block`,
-        position: `absolute`,
-        bottom: `${this.props.mousePosition.bottom}em`,
-        left: `${this.props.mousePosition.left}em`,
-        hight: `3em`,
-        width: `3em`
-      }
-
-      mouse = <img id={"mouse-game-image"} src={mouseImage} style={mousePositionStyle}/>
-    }
-
     const dropsToRender = []
 
     for (let segmentKey in this.props.rainDrops) {
@@ -142,12 +128,10 @@ class GameStartedContainer extends Component {
     return (
       <div ref={d => (this._gameContainer = d)} className="container" onKeyDown={this.moveCat} tabIndex="0">
         { dropsToRender }
-        { mouse }
+        < MouseComponent mousePosition={this.props.mousePosition} mouseCaught={this.props.mouseCaught} />
         { cat }
-
       </div>
     )
-
   }
 }
 
@@ -156,7 +140,8 @@ const mapStateToProps = (state) => {
     catPosition: state.moveIt.catPosition,
     mousePosition: state.moveIt.mousePosition,
     rainDropFactory: state.rain.rainDropFactory,
-    rainDrops: state.rain.rainDrops
+    rainDrops: state.rain.rainDrops,
+    mouseCaught: state.moveIt.mouseCaught
   }
 }
 
@@ -169,7 +154,8 @@ const mapDispatchToProps = (dispatch) => {
     addRainDrop: (drop) => dispatch(addRainDrop(drop)),
     updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
     clearRainDrop: (id) => dispatch(clearRainDrop(id)),
-    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
+    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops()),
+    catchMouse: () => dispatch(catchMouse())
    }
 }
 
