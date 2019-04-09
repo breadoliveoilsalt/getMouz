@@ -43,10 +43,10 @@ class RainDrop extends Component {
       let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
 
       if (xOverlapWithCat && yOverlapWithCat) {
-        segment.backgroundColor = "red"
+        segment.backgroundColor = "red" // this probably changes the state directly
         // segment.height = 2
         // segment.width = 3
-        this.render()
+        // this.render() -- this won't do anything b/c the segment rendering is key'd to the redux state
         clearInterval(this.timer)// -- this only stops the rain drop that caused the game to be lost
         setTimeout(this.props.gameLost, 1000)
         // console.log("game lost!")
@@ -57,7 +57,7 @@ class RainDrop extends Component {
   }
   // This affects how far each segment moves each time it is updated by the parent component
   getRandomTiming() {
-    return Math.floor(Math.random() * (1500 - 250 + 1) + 250)
+    return Math.floor(Math.random() * (1000 - 250 + 1) + 250)
   }
 
   render() {
