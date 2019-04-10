@@ -5,7 +5,7 @@
   /* width: 80vh; */
   height: 30em;  /* 16px * 30 = 460px */
   width: 30em;
-  border: solid black .5em;
+  border: solid blue .5em;
   background-color: black;
 }
 
