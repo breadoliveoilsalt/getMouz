@@ -78,7 +78,7 @@ class GameStartedContainer extends Component {
 
     if (this.props.mousePosition) {
       if (this.checkIfGameWon()) {
-        catchMouse()
+        this.props.catchMouse()
         setTimeout(this.props.gameWon, 1000)
       }
     }
@@ -150,12 +150,12 @@ const mapDispatchToProps = (dispatch) => {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
     setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates)),
     gameWon: () => dispatch(gameWon()),
+    catchMouse: () => dispatch(catchMouse()),
     addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
     addRainDrop: (drop) => dispatch(addRainDrop(drop)),
     updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
     clearRainDrop: (id) => dispatch(clearRainDrop(id)),
-    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops()),
-    catchMouse: () => dispatch(catchMouse())
+    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
    }
 }
 

@@ -32,7 +32,8 @@ function moveItReducer(state = {
         })
     case 'GAME_WON':
       return Object.assign({}, state, {gameWon: true})
-    case 'YUM':
+    case 'CATCH_MOUSE':
+      debugger
       return Object.assign({}, state, {mouseCaught: true})
     case 'UPDATE_CAT_POSITION':
       return Object.assign({}, state, {catPosition: action.payload})

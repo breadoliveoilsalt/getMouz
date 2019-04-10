@@ -47,6 +47,6 @@ export function gameLost() {
 
 export function catchMouse() {
   return {
-    type: 'YUM'
+    type: 'CATCH_MOUSE'
   }
 }

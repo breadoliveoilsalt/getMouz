@@ -29,14 +29,14 @@ class MoveItContainer extends Component {
           <GameStartedContainer />
         </div>
       )
-    } else if (this.props.gameStarted && this.props.gameWon) {
+    } else if (this.props.gameStarted && this.props.gameWon && !this.props.gameLost) {
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
           <GameWonContainer restartGame={this.props.restartGame} />
         </div>
       )
-    } else if (this.props.gameStarted && this.props.gameLost) {
+    } else if (this.props.gameStarted && this.props.gameLost && !this.props.gameWon) {
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
