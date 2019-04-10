@@ -32,8 +32,9 @@ class RainDrop extends Component {
       let rainDropToUpdate = {}
       rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
       this.props.updateRainDrop(rainDropToUpdate)
-      this.checkIfGameLost()
-
+      if (!this.props.caughtMouse && !this.props.touchedRain) {
+        this.checkIfGameLost()
+      }
     }
   }
 
@@ -49,6 +50,7 @@ class RainDrop extends Component {
         // this.render() -- this won't do anything b/c the segment rendering is key'd to the redux state
         clearInterval(this.timer)// -- this only stops the rain drop that caused the game to be lost
           // intended to prevent going from winning screen to losing screen
+          // This is repetitous of code in updateSegments, but I think needed, b/c each segment is embued with ability to check of game lost and might already have that ability and be checking once the original touchedRain is indicated
         if (!this.props.caughtMouse && !this.props.touchedRain) {
           this.props.touchRain()
           setTimeout(this.props.setGameLost, 1500)

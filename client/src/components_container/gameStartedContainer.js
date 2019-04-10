@@ -75,8 +75,8 @@ class GameStartedContainer extends Component {
       })
     }
 
-    if (this.props.mousePosition) {
-      if (this.checkIfGameWon() && !this.props.touchedRain && !this.props.mouseCaught) {
+    if (this.props.mousePosition && !this.props.touchedRain && !this.props.mouseCaught) {
+      if (this.checkIfGameWon()) {
         this.props.catchMouse()
         setTimeout(this.props.setGameWon, 1500)
       }
