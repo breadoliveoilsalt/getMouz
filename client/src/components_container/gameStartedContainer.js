@@ -5,8 +5,7 @@ import { updateCatPosition, setMousePosition, gameWon, catchMouse } from '../act
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
-import catImage from '../images/cat-small.png'
-
+import CatComponent from './catComponent'
 
 class GameStartedContainer extends Component {
 
@@ -85,12 +84,10 @@ class GameStartedContainer extends Component {
   }
 
   checkIfGameWon() {
-
     let xOverlap = this.thereIsOverlap(this.props.catPosition.left, 3, this.props.mousePosition.left, 3)
     let yOverlap = this.thereIsOverlap(this.props.catPosition.bottom, 3, this.props.mousePosition.bottom, 3)
 
     return xOverlap && yOverlap
-
   }
 
   thereIsOverlap(start1, length1, start2, length2) {
@@ -102,21 +99,9 @@ class GameStartedContainer extends Component {
     } else {
       return false
     }
-
   }
 
   render() {
-
-    const catPositionStyle = {
-      display: `inline-block`,
-      position: `absolute`,
-      bottom: `${this.props.catPosition.bottom}em`,
-      left: `${this.props.catPosition.left}em`,
-      hight: `3em`,
-      width: `3em`
-    }
-
-    let cat = <img id={"cat-game-image"} src={catImage} style={catPositionStyle}/>
 
     const dropsToRender = []
 
@@ -129,7 +114,7 @@ class GameStartedContainer extends Component {
       <div ref={d => (this._gameContainer = d)} className="container" onKeyDown={this.moveCat} tabIndex="0">
         { dropsToRender }
         < MouseComponent mousePosition={this.props.mousePosition} mouseCaught={this.props.mouseCaught} />
-        { cat }
+        < CatComponent catPosition={this.props.catPosition}/>
       </div>
     )
   }
