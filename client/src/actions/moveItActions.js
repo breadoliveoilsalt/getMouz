@@ -33,13 +33,13 @@ export function restartGame() {
   }
 }
 
-export function gameWon() {
+export function setGameWon() {
   return {
     type: 'GAME_WON'
   }
 }
 
-export function gameLost() {
+export function setGameLost() {
   return {
     type: 'GAME_LOST'
   }
@@ -48,5 +48,11 @@ export function gameLost() {
 export function catchMouse() {
   return {
     type: 'CATCH_MOUSE'
+  }
+}
+
+export function touchRain() {
+  return {
+    type: 'TOUCH_RAIN'
   }
 }

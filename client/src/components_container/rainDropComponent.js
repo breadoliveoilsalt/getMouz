@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { gameLost } from '../actions/moveItActions'
+import { setGameLost, touchRain } from '../actions/moveItActions'
 
 class RainDrop extends Component {
 
@@ -48,7 +48,11 @@ class RainDrop extends Component {
         // segment.width = 3
         // this.render() -- this won't do anything b/c the segment rendering is key'd to the redux state
         clearInterval(this.timer)// -- this only stops the rain drop that caused the game to be lost
-        setTimeout(this.props.gameLost, 1000)
+          // intended to prevent going from winning screen to losing screen
+        if (!this.props.caughtMouse && !this.props.touchedRain) {
+          this.props.touchRain()
+          setTimeout(this.props.setGameLost, 1500)
+        }
         // console.log("game lost!")
       }
 
@@ -102,7 +106,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    gameLost: () => dispatch(gameLost())
+    setGameLost: () => dispatch(setGameLost()),
+    touchRain: () => dispatch(touchRain())
    }
 }
 

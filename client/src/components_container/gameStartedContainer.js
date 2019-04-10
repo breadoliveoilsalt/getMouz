@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition, gameWon, catchMouse } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition, setGameWon, catchMouse, touchRain } from '../actions/moveItActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
@@ -76,9 +76,9 @@ class GameStartedContainer extends Component {
     }
 
     if (this.props.mousePosition) {
-      if (this.checkIfGameWon()) {
+      if (this.checkIfGameWon() && !this.props.touchedRain && !this.props.mouseCaught) {
         this.props.catchMouse()
-        setTimeout(this.props.gameWon, 1000)
+        setTimeout(this.props.setGameWon, 1500)
       }
     }
   }
@@ -107,7 +107,17 @@ class GameStartedContainer extends Component {
 
     for (let segmentKey in this.props.rainDrops) {
         let segments = this.props.rainDrops[segmentKey]
-        dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop} clearRainDrop={this.props.clearRainDrop} thereIsOverlap={this.thereIsOverlap}/>)
+        dropsToRender.push(
+          <RainDrop
+            idNumber={segmentKey}
+            segments={segments}
+            updateRainDrop={this.props.updateRainDrop}
+            clearRainDrop={this.props.clearRainDrop}
+            thereIsOverlap={this.thereIsOverlap}
+            mouseCaught={this.props.mouseCaught}
+            rainTouched={this.props.touchedRain}
+            />
+        )
     }
 
     return (
@@ -126,7 +136,10 @@ const mapStateToProps = (state) => {
     mousePosition: state.moveIt.mousePosition,
     rainDropFactory: state.rain.rainDropFactory,
     rainDrops: state.rain.rainDrops,
-    mouseCaught: state.moveIt.mouseCaught
+    mouseCaught: state.moveIt.mouseCaught,
+    touchedRain: state.moveIt.touchedRain,
+    gameWon: state.moveIt.gameWon,
+    gameLost: state.moveIt.gameLost
   }
 }
 
@@ -134,8 +147,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
     setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates)),
-    gameWon: () => dispatch(gameWon()),
+    setGameWon: () => dispatch(setGameWon()),
     catchMouse: () => dispatch(catchMouse()),
+    touchRain: () => dispatch(touchRain()),
     addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
     addRainDrop: (drop) => dispatch(addRainDrop(drop)),
     updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
