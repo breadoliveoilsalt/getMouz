@@ -18,7 +18,7 @@ class GameStartedContainer extends Component {
     // this.generateMouse()
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-    this.rainTimer = setInterval(() => this.renderRainDrops(), 450)
+    this.rainTimer = setInterval(() => this.renderRainDrops(), 350)
   }
 
   componentWillUnmount() {
@@ -28,8 +28,8 @@ class GameStartedContainer extends Component {
   }
 
   renderRainDrops() {
-    let drop = this.props.rainDropFactory.createRainDrop()
-    this.props.addRainDrop(drop)
+      let drop = this.props.rainDropFactory.createRainDrop()
+      this.props.addRainDrop(drop)
   }
 
   // should I change functions below to format above?
