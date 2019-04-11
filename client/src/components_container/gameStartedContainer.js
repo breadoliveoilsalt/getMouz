@@ -13,8 +13,8 @@ class GameStartedContainer extends Component {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
 
-    // this.mouseTimer = setTimeout(() => this.generateMouse(), 5000)
-    this.generateMouse()
+    this.mouseTimer = setTimeout(() => this.generateMouse(), 2000)
+    // this.generateMouse()
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
 
@@ -22,7 +22,7 @@ class GameStartedContainer extends Component {
     //   this.renderRainDrops()
     // }
 
-    this.rainTimer = setInterval(() => this.renderRainDrops(), 600)
+    this.rainTimer = setInterval(() => this.renderRainDrops(), 500)
   }
 
   componentWillUnmount() {
@@ -38,7 +38,7 @@ class GameStartedContainer extends Component {
 
   // should I change functions below to format above?
   generateMouse() {
-    let mouseBottom = Math.floor(Math.random() * (27 - 20 + 1) + 20)
+    let mouseBottom = Math.floor(Math.random() * (27 - 25 + 1) + 25)
     let mouseLeft = Math.floor(Math.random() * (27) + 1)
     this.props.setMousePosition({left: mouseLeft, bottom: mouseBottom})
   }

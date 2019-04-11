@@ -63,7 +63,7 @@ class RainDrop extends Component {
   }
   // This affects how far each segment moves each time it is updated by the parent component
   getRandomTiming() {
-    return Math.floor(Math.random() * (1000 - 250 + 1) + 250)
+    return Math.floor(Math.random() * (750 - 250 + 1) + 250)
   }
 
   render() {
