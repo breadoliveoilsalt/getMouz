@@ -1,8 +1,10 @@
+// can I have a const defaultState here?
+
 function moveItReducer(state = {
   gameStarted: false,
   gameWon: false,
   gameLost: false,
-  catPosition: {left: 14, bottom: 1},
+  catPosition: null,
   mousePosition: null,
   mouseCaught: false,
   touchedRain: false,
@@ -16,7 +18,7 @@ function moveItReducer(state = {
         gameStarted: false,
         gameWon: false,
         gameLost: false,
-        catPosition: {left: 14, bottom: 1},
+        catPosition: null,
         mousePosition: null,
         mouseCaught: false,
         touchedRain: false,
@@ -27,7 +29,7 @@ function moveItReducer(state = {
         gameStarted: true,
         gameWon: false,
         gameLost: false,
-        catPosition: {left: 14, bottom: 1},
+        catPosition: null,
         mousePosition: null,
         mouseCaught: false,
         touchedRain: false,
@@ -48,6 +50,8 @@ function moveItReducer(state = {
         }})
     case 'SET_MOUSE_POSITION':
       return Object.assign({}, state, {mousePosition: action.payload})
+    case 'SET_CAT_POSITION':
+      return Object.assign({}, state, {catPosition: action.payload})
     case 'GAME_LOST':
       return Object.assign({}, state, {gameLost: true})
     default:

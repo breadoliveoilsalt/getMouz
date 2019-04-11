@@ -21,6 +21,13 @@ export function setMousePosition(coordinates) {
   }
 }
 
+export function setCatPosition(coordinates) {
+  return {
+    type: 'SET_CAT_POSITION',
+    payload: coordinates
+  }
+}
+
 export function resetGame() {
   return {
     type: 'RESET_GAME'

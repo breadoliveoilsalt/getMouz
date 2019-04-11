@@ -32,7 +32,7 @@ class RainDrop extends Component {
       let rainDropToUpdate = {}
       rainDropToUpdate[this.props.idNumber] = segmentsToUpdate
       this.props.updateRainDrop(rainDropToUpdate)
-      if (!this.props.caughtMouse && !this.props.touchedRain) {
+      if (this.props.catPosition && !this.props.caughtMouse && !this.props.touchedRain) {
         this.checkIfGameLost()
       }
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition, setGameWon, catchMouse, touchRain } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain } from '../actions/moveItActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
@@ -14,6 +14,7 @@ class GameStartedContainer extends Component {
     this._gameContainer.focus()
 
     this.mouseTimer = setTimeout(() => this.generateMouse(), 2000)
+    this.catTimer = setTimeout(() => this.generateCat(), 3000)
     // this.generateMouse()
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
@@ -43,42 +44,49 @@ class GameStartedContainer extends Component {
     this.props.setMousePosition({left: mouseLeft, bottom: mouseBottom})
   }
 
+  generateCat() {
+    let catLeft = Math.floor(Math.random() * (27) + 1)
+    this.props.setCatPosition({left: catLeft, bottom: 1})
+  }
+
   moveCat = (e) => {
     e.preventDefault()
 
-    // moving up:
-    if (e.keyCode === 38 && this.props.catPosition.bottom < 27) {
-      this.props.updateCatPosition({
-        left: this.props.catPosition.left,
-        bottom: this.props.catPosition.bottom + 1
-      })
-    }
-    // moving down:
-    if (e.keyCode === 40 && this.props.catPosition.bottom > 0) {
-      this.props.updateCatPosition({
-        left: this.props.catPosition.left,
-        bottom: this.props.catPosition.bottom - 1
-      })
-    }
-    // moving left:
-    if (e.keyCode === 37 && this.props.catPosition.left > 0) {
-      this.props.updateCatPosition({
-        left: this.props.catPosition.left - 1,
-        bottom: this.props.catPosition.bottom
-      })
-    }
-    // moving right:
-    if (e.keyCode === 39 && this.props.catPosition.left < 27) {
-      this.props.updateCatPosition({
-        left: this.props.catPosition.left + 1,
-        bottom: this.props.catPosition.bottom
-      })
-    }
+    if (this.props.catPosition) {
+      // moving up:
+      if (e.keyCode === 38 && this.props.catPosition.bottom < 27) {
+        this.props.updateCatPosition({
+          left: this.props.catPosition.left,
+          bottom: this.props.catPosition.bottom + 1
+        })
+      }
+      // moving down:
+      if (e.keyCode === 40 && this.props.catPosition.bottom > 0) {
+        this.props.updateCatPosition({
+          left: this.props.catPosition.left,
+          bottom: this.props.catPosition.bottom - 1
+        })
+      }
+      // moving left:
+      if (e.keyCode === 37 && this.props.catPosition.left > 0) {
+        this.props.updateCatPosition({
+          left: this.props.catPosition.left - 1,
+          bottom: this.props.catPosition.bottom
+        })
+      }
+      // moving right:
+      if (e.keyCode === 39 && this.props.catPosition.left < 27) {
+        this.props.updateCatPosition({
+          left: this.props.catPosition.left + 1,
+          bottom: this.props.catPosition.bottom
+        })
+      }
 
-    if (this.props.mousePosition && !this.props.touchedRain && !this.props.mouseCaught) {
-      if (this.checkIfGameWon()) {
-        this.props.catchMouse()
-        setTimeout(this.props.setGameWon, 1500)
+      if (this.props.mousePosition && !this.props.touchedRain && !this.props.mouseCaught) {
+        if (this.checkIfGameWon()) {
+          this.props.catchMouse()
+          setTimeout(this.props.setGameWon, 1500)
+        }
       }
     }
   }
@@ -113,6 +121,7 @@ class GameStartedContainer extends Component {
             segments={segments}
             updateRainDrop={this.props.updateRainDrop}
             clearRainDrop={this.props.clearRainDrop}
+            catPosition={this.props.catPosition}
             thereIsOverlap={this.thereIsOverlap}
             mouseCaught={this.props.mouseCaught}
             rainTouched={this.props.touchedRain}
@@ -147,6 +156,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateCatPosition: (coordinates) => dispatch(updateCatPosition(coordinates)),
     setMousePosition: (coordinates) => dispatch(setMousePosition(coordinates)),
+    setCatPosition: (coordinates) => dispatch(setCatPosition(coordinates)),
     setGameWon: () => dispatch(setGameWon()),
     catchMouse: () => dispatch(catchMouse()),
     touchRain: () => dispatch(touchRain()),

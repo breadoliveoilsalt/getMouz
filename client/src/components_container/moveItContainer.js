@@ -6,7 +6,7 @@ import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
 import GameLostContainer from './gameLostContainer'
-import catImage from '../images/cat-small.png'
+// import catImageLarg from '../images/cat-small.png'
 
 
 class MoveItContainer extends Component {
@@ -47,7 +47,7 @@ class MoveItContainer extends Component {
       return (
         <div>
           <h1 className="text-centered">Make the Cat Move It</h1>
-          <GameNotStartedContainer startGame={this.props.startGame} catImage={catImage}/>
+          <GameNotStartedContainer startGame={this.props.startGame} />
         </div>
       )
     }
