@@ -18,12 +18,7 @@ class GameStartedContainer extends Component {
     // this.generateMouse()
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
-
-    // for (let i = 0; i < 10; i ++) {
-    //   this.renderRainDrops()
-    // }
-
-    //this.rainTimer = setInterval(() => this.renderRainDrops(), 500)
+    this.rainTimer = setInterval(() => this.renderRainDrops(), 450)
   }
 
   componentWillUnmount() {
@@ -39,7 +34,7 @@ class GameStartedContainer extends Component {
 
   // should I change functions below to format above?
   generateMouse() {
-    let mouseBottom = Math.floor(Math.random() * (27 - 25 + 1) + 25)
+    let mouseBottom = Math.floor(Math.random() * (27 - 26 + 1) + 26)
     let mouseLeft = Math.floor(Math.random() * (27) + 1)
     this.props.setMousePosition({left: mouseLeft, bottom: mouseBottom})
   }
