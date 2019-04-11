@@ -23,7 +23,7 @@ class GameStartedContainer extends Component {
     //   this.renderRainDrops()
     // }
 
-    this.rainTimer = setInterval(() => this.renderRainDrops(), 500)
+    //this.rainTimer = setInterval(() => this.renderRainDrops(), 500)
   }
 
   componentWillUnmount() {
@@ -92,8 +92,8 @@ class GameStartedContainer extends Component {
   }
 
   checkIfGameWon() {
-    let xOverlap = this.thereIsOverlap(this.props.catPosition.left, 3, this.props.mousePosition.left, 3)
-    let yOverlap = this.thereIsOverlap(this.props.catPosition.bottom, 3, this.props.mousePosition.bottom, 3)
+    let xOverlap = this.thereIsOverlap(this.props.catPosition.left + 1, 1, this.props.mousePosition.left, 3)
+    let yOverlap = this.thereIsOverlap(this.props.catPosition.bottom, 2, this.props.mousePosition.bottom, 3)
 
     return xOverlap && yOverlap
   }
