@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import Header from './components_container/header'
+import NavBar from './components_container/navBar'
 import HomeComponent from './components_container/homeComponent'
 // import AboutTestComponent from './components_presentational/aboutTestComponent'
 import RandomDotsContainer from './components_container/randomDotsContainer'
@@ -17,14 +18,8 @@ class App extends Component {
       <BrowserRouter>
         <div>
 
-          <ul>
-            <li> <Link to="/"> Home </Link> </li>
-            <li> <Link to="/randomdots"> Random Dots </Link> </li>
-            <li> <Link to="/rain"> Make It Rain </Link> </li>
-            <li> <Link to="/moveit"> I like to move it move it </Link> </li>
-          </ul>
-
           <Header />
+          <NavBar />
 
           <Switch>
             <Route path="/" exact component={HomeComponent} />
