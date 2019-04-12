@@ -1,3 +1,7 @@
+.header {
+  margin: 2em auto;
+}
+
 .container {
   position: relative;
   margin: 2em auto;
