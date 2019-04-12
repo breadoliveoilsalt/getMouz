@@ -12,6 +12,29 @@
   background-color: pink;
 }
 
+#game-container {
+  height: 31em;
+  width: 61em;
+  background-color: white;
+  margin: 0em auto;
+}
+
+.column {
+  height: 30em;
+  width: 15em;
+  float: left;
+  background-color: red;
+}
+
+.test-container {
+  height: 30em;  /* 16px * 30 = 460px */
+  width: 30em;
+  border: solid blue .5em;
+  background-color: black;
+  background-color: pink;
+  float: left;
+}
+
 .no-vertical-margin {
   margin: 0em auto;
 }

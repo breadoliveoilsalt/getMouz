@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import Header from './components_container/header'
 import NavBar from './components_container/navBar'
+import GameContainerComponent from './components_container/gameContainerComponent'
 import HomeComponent from './components_container/homeComponent'
 // import AboutTestComponent from './components_presentational/aboutTestComponent'
 import RandomDotsContainer from './components_container/randomDotsContainer'
@@ -20,6 +21,7 @@ class App extends Component {
 
           <Header />
           <NavBar />
+          <GameContainerComponent />
 
           <Switch>
             <Route path="/" exact component={HomeComponent} />
