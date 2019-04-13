@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import GamePlayContainer from './gamePlayContainer'
 
 class GameContainerComponent extends Component {
 
@@ -7,7 +8,7 @@ class GameContainerComponent extends Component {
     return(
       <div id="game-container">
         <div className={"column"} />
-        <div className={"test-container"} />
+        <GamePlayContainer />
         <div className={"column"} />
 
 

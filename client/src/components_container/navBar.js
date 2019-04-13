@@ -8,8 +8,8 @@ const Header = () => {
 
   return(
     <div className={"navBar"} style={{color: 'black'}}>
-      <img className={"navlink"} src={playImage} />
-      <img className={"navlink"} src={aboutImage} />
+      <Link className={"navlink"} to="/"> <img src={playImage} /> </Link>
+      <Link className={"navlink"} to="/randomdots"> <img src={aboutImage} /> </Link>
     </div>
 
 

@@ -10,7 +10,6 @@ import HomeComponent from './components_container/homeComponent'
 // import AboutTestComponent from './components_presentational/aboutTestComponent'
 import RandomDotsContainer from './components_container/randomDotsContainer'
 import RainContainer from './components_container/rainContainer'
-import MoveItContainer from './components_container/moveItContainer'
 
 class App extends Component {
 
@@ -21,13 +20,10 @@ class App extends Component {
 
           <Header />
           <NavBar />
-          <GameContainerComponent />
 
           <Switch>
-            <Route path="/" exact component={HomeComponent} />
             <Route path="/randomdots" exact component={RandomDotsContainer} />
-            <Route path="/rain" exact component={RainContainer} />
-            <Route path="/moveit" exact component={MoveItContainer} />
+            <Route path="/" exact component={GameContainerComponent} />
           </Switch>
 
         </div>

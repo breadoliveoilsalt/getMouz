@@ -9,7 +9,7 @@ import GameLostContainer from './gameLostContainer'
 // import catImageLarg from '../images/cat-small.png'
 
 
-class MoveItContainer extends Component {
+class GamePlayContainer extends Component {
 
   componentWillUnmount() {
     this.props.resetGame()
@@ -69,4 +69,4 @@ const mapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoveItContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(GamePlayContainer)
