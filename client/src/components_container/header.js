@@ -1,12 +1,12 @@
 import React from 'react'
-// import catImageSmall from '../images/cat-small.png'
+import headerImage from '../images/header.png'
 
 const Header = () => {
 
   return(
 
-    <div className={"header text-centered"} style={{color: 'white'}}>
-      Header
+    <div className={"header text-centered"}>
+      <img src={headerImage} />
     </div>
 
     )

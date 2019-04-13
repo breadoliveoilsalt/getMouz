@@ -1,16 +1,28 @@
 .header {
   margin: 2em auto 0em auto;
-  height: 10em; /* 800px x 160px */
+  height: 8em; /* 800px x 160px */
   width: 50em;
-  background-color: white;
 }
 
 .navBar {
   margin: 0em auto;
-  height: 5em; /* 800px x 160px */
+  height: 5em; /* 640px x 80px */
   width: 40em;
-  background-color: pink;
 }
+
+// up to trying to make link images centered and float next to each other
+.navlink {
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+/* .navlink {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+} */
 
 #game-container {
   height: 31em;
