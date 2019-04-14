@@ -21,7 +21,6 @@ class RainDrop extends Component {
     // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
     let segmentsToUpdate = [...this.props.segments]
-    // could have just used map?
     segmentsToUpdate.forEach( (segment) => {
       segment.bottom -= 1
       segment.left -= 0.1
@@ -98,13 +97,6 @@ class RainDrop extends Component {
   }
 }
 
-// I added mapStateToProps directly here since this is already a complicated component and I don't want cat cat position
-// to be passed down only when dispatch is called above; I want cat position to be available all the time.
-const mapStateToProps = (state) => {
-  return {
-    catPosition: state.moveIt.catPosition,
-  }
-}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -113,4 +105,4 @@ const mapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RainDrop)
+export default connect(null, mapDispatchToProps)(RainDrop)

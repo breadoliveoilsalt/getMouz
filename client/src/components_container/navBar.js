@@ -1,35 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { Link } from "react-router-dom"
+import { restartGame } from '../actions/moveItActions'
+
 import playImage from '../images/playImage.png'
 import aboutImage from '../images/aboutImage.png'
-import { Link } from "react-router-dom"
+
+class NavBar extends Component {
 
 
-const Header = () => {
+  render() {
+    return(
+      <div className={"navBar"} style={{color: 'black'}}>
+        <Link className={"navlink"} to="/" onClick={this.props.restartGame}> <img src={playImage} /> </Link>
+        <Link className={"navlink"} to="/randomdots"> <img src={aboutImage} /> </Link>
+      </div>
 
-  return(
-    <div className={"navBar"} style={{color: 'black'}}>
-      <Link className={"navlink"} to="/"> <img src={playImage} /> </Link>
-      <Link className={"navlink"} to="/randomdots"> <img src={aboutImage} /> </Link>
-    </div>
-
-
-    )
+      )
+  }
 
 }
 
-export default Header
+const mapDispatchToProps = (dispatch) => {
+  return {
+    restartGame: () => dispatch(restartGame())
+   }
+}
 
 
-// <ul className={"no-vertical-margin"}>
-//   <li> <Link className={"navlink"} to="/moveit"> <img src={playImage} />  </Link> </li>
-//   <li> <Link className={"namlink"} to="/randomdots"> <img src={aboutImage} />  </Link> </li>
-// </ul>
-
-// <div className={"navBar"} style={{color: 'black'}}>
-//   <ul className={"no-vertical-margin"}>
-//     <li> <Link to="/"> Home </Link> </li>
-//     <li> <Link to="/randomdots"> Random Dots </Link> </li>
-//     <li> <Link to="/rain"> Make It Rain </Link> </li>
-//     <li> <Link to="/moveit"> I like to move it move it </Link> </li>
-//   </ul>
-// </div>
+export default connect(null, mapDispatchToProps)(NavBar)
