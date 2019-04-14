@@ -3,17 +3,23 @@ import { connect } from 'react-redux'
 
 import { Link } from "react-router-dom"
 import { restartGame } from '../actions/gameActions'
+import { clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
 import playImage from '../images/playImage.png'
 import aboutImage from '../images/aboutImage.png'
 
 class NavBar extends Component {
 
+  generalRestart() {
+    this.props.restartGame()
+    this.props.clearRainDropFactoryAndRainDrops()
+  }
+
 
   render() {
     return(
-      <div className={"navBar"} style={{color: 'black'}}>
-        <Link className={"navlink"} to="/" onClick={this.props.restartGame}> <img src={playImage} /> </Link>
+      <div className={"navBar"}>
+        <Link className={"navlink"} to="/" onClick={this.generalRestart}> <img src={playImage} /> </Link>
         <Link className={"navlink"} to="/randomdots"> <img src={aboutImage} /> </Link>
       </div>
 
@@ -24,7 +30,8 @@ class NavBar extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    restartGame: () => dispatch(restartGame())
+    restartGame: () => dispatch(restartGame()),
+    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
    }
 }
 
