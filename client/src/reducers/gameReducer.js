@@ -8,13 +8,16 @@ const defaultState = {
   mousePosition: null,
   mouseCaught: false,
   touchedRain: false,
-  level: 1
+  level: 1,
+  score: 0
 }
 
 function gameReducer(state = defaultState, action) {
   switch (action.type) {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
+    case 'INCREASE_SCORE':
+      return Object.assign({}, state, {score: state.score + action.payload})
     case 'RESET_GAME':
       return Object.assign({}, defaultState)
     case 'RESTART_GAME':

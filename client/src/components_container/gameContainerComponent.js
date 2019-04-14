@@ -7,7 +7,9 @@ class GameContainerComponent extends Component {
   render() {
     return(
       <div id="game-container">
-        <div className={"column"} />
+        <div className={"column"} style={{color: 'white'}} >
+          {this.props.score}
+        </div>
         <GamePlayContainer />
         <div className={"column"} />
 
@@ -17,19 +19,19 @@ class GameContainerComponent extends Component {
   }
 }
 //
-// const mapStateToProps = (state) => {
-//   return {
-//     numberList: state.testReducer
-//   }
-// }
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//       addAnotherOne: () => dispatch(addAnotherOne())
-//         // Example using arguments:
-//       // postUpdate: (id, data) => dispatch(postUpdate(id, data)),
-//    }
-// }
+const mapStateToProps = (state) => {
+  return {
+    score: state.game.score
+  }
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(GameContainerComponent)
-export default GameContainerComponent
+const mapDispatchToProps = (dispatch) => {
+  return {
+      // addAnotherOne: () => dispatch(addAnotherOne())
+        // Example using arguments:
+      // postUpdate: (id, data) => dispatch(postUpdate(id, data)),
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainerComponent)
+// export default GameContainerComponent

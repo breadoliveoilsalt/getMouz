@@ -27,6 +27,7 @@ class RainDrop extends Component {
     })
     if (segmentsToUpdate[2].bottom < 0 || segmentsToUpdate[2].left < 0) {
       this.props.clearRainDrop(this.props.idNumber)
+      this.props.increaseScore(15)
     } else {
       let rainDropToUpdate = {}
       rainDropToUpdate[this.props.idNumber] = segmentsToUpdate

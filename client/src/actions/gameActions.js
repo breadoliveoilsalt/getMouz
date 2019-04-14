@@ -63,3 +63,10 @@ export function touchRain() {
     type: 'TOUCH_RAIN'
   }
 }
+
+export function increaseScore(num) {
+  return {
+    type: 'INCREASE_SCORE',
+    payload: num
+  }
+}

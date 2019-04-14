@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain } from '../actions/gameActions'
+import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain, increaseScore } from '../actions/gameActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
@@ -42,6 +42,7 @@ class GameStartedContainer extends Component {
   renderRainDrops() {
       let drop = this.props.rainDropFactory.createRainDrop()
       this.props.addRainDrop(drop)
+      this.props.increaseScore(3)
   }
 
   // should I change functions below to format above?
@@ -89,6 +90,8 @@ class GameStartedContainer extends Component {
         })
       }
 
+      this.props.increaseScore(10)
+
       if (this.props.mousePosition && !this.props.touchedRain && !this.props.mouseCaught) {
         if (this.checkIfGameWon()) {
           this.props.catchMouse()
@@ -128,6 +131,7 @@ class GameStartedContainer extends Component {
             segments={segments}
             updateRainDrop={this.props.updateRainDrop}
             clearRainDrop={this.props.clearRainDrop}
+            increaseScore={this.props.increaseScore}
             catPosition={this.props.catPosition}
             thereIsOverlap={this.thereIsOverlap}
             mouseCaught={this.props.mouseCaught}
@@ -167,6 +171,7 @@ const mapDispatchToProps = (dispatch) => {
     setGameWon: () => dispatch(setGameWon()),
     catchMouse: () => dispatch(catchMouse()),
     touchRain: () => dispatch(touchRain()),
+    increaseScore: (num) => dispatch(increaseScore(num)),
     addRainDropFactory: (rainDropFactory) => dispatch(addRainDropFactory(rainDropFactory)),
     addRainDrop: (drop) => dispatch(addRainDrop(drop)),
     updateRainDrop: (drop) => dispatch(updateRainDrop(drop)),
