@@ -14,7 +14,6 @@
 
 .navlink {
   display: inline-block;
-  /* float: left; */
   margin: 0 3.5em;
 }
 /* .navlink {
@@ -67,6 +66,17 @@
   border: solid blue .5em;
   background-color: black;
   float: left;
+}
+
+.non-game-screen {
+    position: relative;
+    margin: 0 auto;
+    /* height: 80vh; */
+    /* width: 80vh; */
+    height: 30em;  /* 16px * 30 = 460px */
+    width: 30em;
+    border: solid blue .5em;
+    background-color: black;
 }
 
 .text-centered {
