@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 import randomDotsReducer from './randomDotsReducer'
 import rainReducer from './rainReducer'
-import moveItReducer from './moveItReducer'
+import gameReducer from './gameReducer'
 
 const rootReducer = combineReducers(
   {
     randomDots: randomDotsReducer,
     rain: rainReducer,
-    moveIt: moveItReducer
+    game: gameReducer
   }
 )
 

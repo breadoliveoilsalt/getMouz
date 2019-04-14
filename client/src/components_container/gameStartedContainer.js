@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain } from '../actions/moveItActions'
+import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain } from '../actions/gameActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
@@ -138,14 +138,14 @@ class GameStartedContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    catPosition: state.moveIt.catPosition,
-    mousePosition: state.moveIt.mousePosition,
+    catPosition: state.game.catPosition,
+    mousePosition: state.game.mousePosition,
     rainDropFactory: state.rain.rainDropFactory,
     rainDrops: state.rain.rainDrops,
-    mouseCaught: state.moveIt.mouseCaught,
-    touchedRain: state.moveIt.touchedRain,
-    gameWon: state.moveIt.gameWon,
-    gameLost: state.moveIt.gameLost
+    mouseCaught: state.game.mouseCaught,
+    touchedRain: state.game.touchedRain,
+    gameWon: state.game.gameWon,
+    gameLost: state.game.gameLost
   }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { Link } from "react-router-dom"
-import { restartGame } from '../actions/moveItActions'
+import { restartGame } from '../actions/gameActions'
 
 import playImage from '../images/playImage.png'
 import aboutImage from '../images/aboutImage.png'

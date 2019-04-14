@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setGameLost, touchRain } from '../actions/moveItActions'
+import { setGameLost, touchRain } from '../actions/gameActions'
 
 class RainDrop extends Component {
 

@@ -11,7 +11,7 @@ const defaultState = {
   level: 1
 }
 
-function moveItReducer(state = defaultState, action) {
+function gameReducer(state = defaultState, action) {
   switch (action.type) {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
@@ -43,4 +43,4 @@ function moveItReducer(state = defaultState, action) {
   }
 }
 
-export default moveItReducer
+export default gameReducer

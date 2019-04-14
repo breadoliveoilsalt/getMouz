@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { startGame, resetGame, restartGame } from '../actions/moveItActions'
+import { startGame, resetGame, restartGame } from '../actions/gameActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
@@ -53,10 +53,10 @@ class GamePlayContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    catPosition: state.moveIt.catPosition,
-    gameStarted: state.moveIt.gameStarted,
-    gameWon: state.moveIt.gameWon,
-    gameLost: state.moveIt.gameLost
+    catPosition: state.game.catPosition,
+    gameStarted: state.game.gameStarted,
+    gameWon: state.game.gameWon,
+    gameLost: state.game.gameLost
   }
 }
 
