@@ -7,7 +7,7 @@ class GameNotStartedContainer extends Component {
   render() {
 
     return (
-        <div className="container" tabIndex="0">
+        <div className="game-screen" tabIndex="0">
 
           <a onClick={this.props.startGame}>
 

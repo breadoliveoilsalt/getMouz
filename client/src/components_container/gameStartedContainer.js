@@ -125,7 +125,7 @@ class GameStartedContainer extends Component {
     }
 
     return (
-      <div ref={d => (this._gameContainer = d)} className="container" onKeyDown={this.moveCat} tabIndex="0">
+      <div ref={d => (this._gameContainer = d)} className="game-screen" onKeyDown={this.moveCat} tabIndex="0">
         { dropsToRender }
         < MouseComponent mousePosition={this.props.mousePosition} mouseCaught={this.props.mouseCaught} />
         < CatComponent catPosition={this.props.catPosition}/>

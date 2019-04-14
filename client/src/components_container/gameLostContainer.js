@@ -4,7 +4,7 @@ import gameLostImage from '../images/game-lost-image.png'
 const GameLostContainer = (props) => {
   return(
 
-      <div className="container" tabIndex="0">
+      <div className="game-screen" tabIndex="0">
 
           <a onClick={props.restartGame}>
             <img className="cat-menu-image" src={gameLostImage} />
