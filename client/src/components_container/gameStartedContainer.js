@@ -13,14 +13,24 @@ class GameStartedContainer extends Component {
       // need 'ref' in container div below so focus is on div when component loads and keys will trigger movement
     this._gameContainer.focus()
 
-    this.props.clearRainDropFactoryAndRainDrops()
+    this.rainTimer = null
 
-    let rdFactory = createRainFactory()
-    this.props.addRainDropFactory(rdFactory)
-    this.rainTimer = setInterval(() => this.renderRainDrops(), 350)
-
-    this.mouseTimer = setTimeout(() => this.generateMouse(), 2000)
-    this.catTimer = setTimeout(() => this.generateCat(), 3000)
+    Promise.resolve(this.props.clearRainDropFactoryAndRainDrops())
+      .then(createRainFactory)
+      .then((factory) => {
+        this.props.addRainDropFactory(factory)
+      })
+      .then(this.rainTimer = setInterval(() => this.renderRainDrops(), 350))
+      .then(setTimeout(() => this.generateMouse(), 2000))
+      .then(setTimeout(() => this.generateCat(), 3000))
+    // this.props.clearRainDropFactoryAndRainDrops()
+    //
+    // let rdFactory = createRainFactory()
+    // this.props.addRainDropFactory(rdFactory)
+    // // this.rainTimer = setInterval(() => this.renderRainDrops(), 350)
+    //
+    // this.mouseTimer = setTimeout(() => this.generateMouse(), 2000)
+    // this.catTimer = setTimeout(() => this.generateCat(), 3000)
   }
 
   componentWillUnmount() {
