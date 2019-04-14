@@ -1,6 +1,6 @@
 // can I have a const defaultState here?
 
-function moveItReducer(state = {
+const defaultState = {
   gameStarted: false,
   gameWon: false,
   gameLost: false,
@@ -9,32 +9,16 @@ function moveItReducer(state = {
   mouseCaught: false,
   touchedRain: false,
   level: 1
-  }, action) {
+}
+
+function moveItReducer(state = defaultState, action) {
   switch (action.type) {
     case 'START_GAME':
       return Object.assign({}, state, {gameStarted: true})
     case 'RESET_GAME':
-      return Object.assign({}, { // return state?
-        gameStarted: false,
-        gameWon: false,
-        gameLost: false,
-        catPosition: null,
-        mousePosition: null,
-        mouseCaught: false,
-        touchedRain: false,
-        level: 1
-        })
+      return Object.assign({}, defaultState)
     case 'RESTART_GAME':
-      return Object.assign({}, {
-        gameStarted: true,
-        gameWon: false,
-        gameLost: false,
-        catPosition: null,
-        mousePosition: null,
-        mouseCaught: false,
-        touchedRain: false,
-        level: 1
-        })
+      return Object.assign({}, defaultState, {gameStarted: true})
     case 'GAME_WON':
       return Object.assign({}, state, {gameWon: true})
     case 'CATCH_MOUSE':
