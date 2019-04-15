@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 
 import GamePlayContainer from './gamePlayContainer'
 import rightColumnImage2 from '../images/rightColImage2.png'
-// import scoreImage from '../images/scoreImage.png'
 import yourScoreImage from '../images/yourScore.png'
+import topScoresImage from '../images/topScores.png'
 
 
 class GameContainerComponent extends Component {
 
+// change this to have a directions component
+// and flush out scores component
 
   render() {
     return(
@@ -18,6 +20,7 @@ class GameContainerComponent extends Component {
           <p className={"text-centered"} >
             <span style={{color: 'white', fontSize: '3em'}}> {this.props.score} </span>
           </p>
+          <img src={topScoresImage} style={{display: 'block'}} />
         </div>
         <GamePlayContainer />
 
