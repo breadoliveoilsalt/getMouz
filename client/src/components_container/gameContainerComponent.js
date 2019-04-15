@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+import { restartGame } from '../actions/gameActions'
+import { clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
+
 import GamePlayContainer from './gamePlayContainer'
+import rightColumnImage from '../images/rightColImage.png'
 
 class GameContainerComponent extends Component {
+
+  componentDidMount() {
+    this.props.restartGame()
+    this.props.clearRainDropFactoryAndRainDrops()
+  }
 
   render() {
     return(
       <div id="game-container">
-        <div className={"column"} style={{color: 'white'}} >
+        <div className={"game-column"} style={{color: 'white'}} >
           {this.props.score}
         </div>
         <GamePlayContainer />
-        <div className={"column"} />
+
+        <div className={"game-column"} >
+          <img src={rightColumnImage} />
+        </div>
 
 
       </div>
@@ -27,9 +40,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      // addAnotherOne: () => dispatch(addAnotherOne())
-        // Example using arguments:
-      // postUpdate: (id, data) => dispatch(postUpdate(id, data)),
+    restartGame: () => dispatch(restartGame()),
+    clearRainDropFactoryAndRainDrops: () => dispatch(clearRainDropFactoryAndRainDrops())
    }
 }
 

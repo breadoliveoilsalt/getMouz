@@ -36,11 +36,10 @@
   margin: 0em auto;
 }
 
-.column {
-  height: 30em;
+.game-column {
+  height: 30em; /* 240px x 480px */
   width: 15em;
   float: left;
-  background-color: red;
 }
 
 .test-container {
