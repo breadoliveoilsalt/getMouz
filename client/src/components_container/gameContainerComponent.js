@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 
 import GamePlayContainer from './gamePlayContainer'
 import rightColumnImage2 from '../images/rightColImage2.png'
-import scoreImage from '../images/scoreImage.png'
+// import scoreImage from '../images/scoreImage.png'
+import yourScoreImage from '../images/yourScore.png'
+
 
 class GameContainerComponent extends Component {
 
@@ -12,7 +14,7 @@ class GameContainerComponent extends Component {
     return(
       <div id="game-container">
         <div className={"game-column"}>
-          <img src={scoreImage} style={{display: 'block'}} />
+          <img src={yourScoreImage} style={{display: 'block'}} />
           <p className={"text-centered"} >
             <span style={{color: 'white', fontSize: '3em'}}> {this.props.score} </span>
           </p>

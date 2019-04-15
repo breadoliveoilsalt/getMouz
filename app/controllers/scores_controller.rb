@@ -2,7 +2,8 @@ class ScoresController < ApplicationController
 
 
   def index
-    raise "Here I am"
+    scores = Score.all
+    render :json => scores
   end
 
 end
