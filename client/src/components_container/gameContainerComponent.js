@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import GamePlayContainer from './gamePlayContainer'
-import rightColumnImage from '../images/rightColImage.png'
+import rightColumnImage2 from '../images/rightColImage2.png'
 import scoreImage from '../images/scoreImage.png'
 
 class GameContainerComponent extends Component {
@@ -20,7 +20,7 @@ class GameContainerComponent extends Component {
         <GamePlayContainer />
 
         <div className={"game-column"} >
-          <img src={rightColumnImage} />
+          <img src={rightColumnImage2} />
         </div>
 
 
