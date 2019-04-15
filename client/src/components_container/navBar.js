@@ -10,11 +10,10 @@ import aboutImage from '../images/aboutImage.png'
 
 class NavBar extends Component {
 
-  generalRestart = (e) => {
-    // e.preventDefault()
-    this.props.resetGame()
-    this.props.clearRainDropFactoryAndRainDrops()
-  }
+    generalRestart = (e) => {
+      this.props.resetGame()
+      this.props.clearRainDropFactoryAndRainDrops()
+    }
 
 
 
