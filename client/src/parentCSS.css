@@ -9,12 +9,13 @@
   margin: 0em auto;
   height: 5em; /* 640px x 80px */
   width: 40em;
+  text-align: center;
 }
 
 
 .navlink {
   display: inline-block;
-  margin: 0 3.5em;
+  margin: 0 1em;
 }
 /* .navlink {
   display: inline-block;
