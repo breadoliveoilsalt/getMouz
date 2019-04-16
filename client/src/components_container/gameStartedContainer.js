@@ -135,8 +135,8 @@ class GameStartedContainer extends Component {
             increaseScore={this.props.increaseScore}
             catPosition={this.props.catPosition}
             thereIsOverlap={this.thereIsOverlap}
-            mouseCaught={this.props.mouseCaught}
-            rainTouched={this.props.touchedRain}
+            // mouseCaught={this.props.mouseCaught}
+            // rainTouched={this.props.touchedRain}
             />
         )
     }
