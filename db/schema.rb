@@ -19,8 +19,4 @@ ActiveRecord::Schema.define(version: 2019_04_15_214159) do
     t.integer "points"
   end
 
-  create_table "test_models", force: :cascade do |t|
-    t.string "db_message"
-  end
-
 end

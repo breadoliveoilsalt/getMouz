@@ -90,3 +90,36 @@ export function getTopScores() {
       .then(scores => dispatch(populateScores(scores)))
   }
 }
+
+export function updateTopScores() {
+  return function(dispatch, getState) {
+
+    let currentScore = getState().game.score
+    let currentTopScores = getState().game.topScores
+
+    if (currentTopScores.includes(currentScore)) {
+      return
+    }
+
+    if (currentTopScores[4] === undefined || currentScore > currentTopScores[4]) {
+      debugger
+      let tempScores = [...currentTopScores, currentScore]
+      tempScores.sort((a,b) => b - a)
+      tempScores.splice(4)
+      dispatch(populateScores(tempScores))
+
+      fetch('/api/scores', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({points: currentScore})
+      })
+      .then(res => {
+        if (res.errors) {
+          throw res.errors
+        }})
+      .catch(err => {
+        console.log("Sorry, the following error occured: ", err)
+      })
+    }
+  }
+}
