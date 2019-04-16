@@ -2,7 +2,7 @@ class ScoresController < ApplicationController
 
 
   def index
-    scores = Score.all
+    scores = Score.get_top_five
     render :json => scores
   end
 

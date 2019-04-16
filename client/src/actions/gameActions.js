@@ -70,3 +70,11 @@ export function increaseScore(num) {
     payload: num
   }
 }
+
+export function populateScores(scores) {
+  debugger
+  return {
+    type: 'POPULATE_SCORES',
+    payload: scores
+  }
+}
