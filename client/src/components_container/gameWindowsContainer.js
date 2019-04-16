@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import fetch from 'isomorphic-fetch'
-import { populateScores } from '../actions/gameActions'
+import { populateScores, getTopScores } from '../actions/gameActions'
 import GamePlayContainer from './gamePlayContainer'
 import rightColumnImage2 from '../images/rightColImage2.png'
 import yourScoreImage from '../images/yourScore.png'
@@ -11,14 +11,16 @@ import topScoresImage from '../images/topScores.png'
 class GameWindowsContainer extends Component {
 
   componentDidMount() {
-    this.getTopScores()
+    if (!this.props.topScores){
+      this.props.getTopScores()
+    }
   }
 
-  getTopScores(){
-    fetch('/api/scores')
-    .then(response => response.json())
-    .then(scores => this.props.populateScores(scores))
-  }
+  // getTopScores(){
+  //   fetch('/api/scores')
+  //   .then(response => response.json())
+  //   .then(scores => this.props.populateScores(scores))
+  // }
 
 // change this to have a directions component
 // and flush out scores component
@@ -73,7 +75,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    populateScores: (scores) => dispatch(populateScores(scores))
+    populateScores: (scores) => dispatch(populateScores(scores)),
+    getTopScores: () => dispatch(getTopScores())
   }
 }
 

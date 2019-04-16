@@ -82,3 +82,11 @@ export function populateScores(scores) {
     payload: scores
   }
 }
+
+export function getTopScores() {
+  return function(dispatch) {
+    fetch('/api/scores')
+      .then(response => response.json())
+      .then(scores => dispatch(populateScores(scores)))
+  }
+}
