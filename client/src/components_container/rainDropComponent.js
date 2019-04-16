@@ -52,9 +52,10 @@ class RainDrop extends Component {
           // intended to prevent going from winning screen to losing screen
           // This is repetitous of code in updateSegments, but I think needed, b/c each segment is embued with ability to check of game lost and might already have that ability and be checking once the original touchedRain is indicated
         if (!this.props.caughtMouse && !this.props.touchedRain) {
-          this.props.touchRain()
-          this.props.updateTopScores()
-          setTimeout(this.props.setGameLost, 1500)
+          // debugger
+          Promise.resolve(this.props.touchRain())
+          .then(setTimeout(this.props.setGameLost, 1500))
+          .then(this.props.updateTopScores())
         }
         // console.log("game lost!")
       }
@@ -101,7 +102,9 @@ class RainDrop extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    score: state.game.score
+    score: state.game.score,
+    caughtMouse: state.game.caughtMouse,
+    touchedRain: state.game.touchedRain    
   }
 }
 

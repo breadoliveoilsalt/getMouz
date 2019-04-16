@@ -31,7 +31,7 @@ class GameWindowsContainer extends Component {
 
     let topScoresList = null
 
-    if (this.props.topScores) {
+    if (this.props.topScores.length > 0) {
       topScoresList = this.props.topScores.map( (score) => {
         return (
           <p className={"text-centered"} >

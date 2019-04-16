@@ -10,7 +10,7 @@ const defaultState = {
   touchedRain: false,
   level: 1,
   score: 0,
-  topScores: null
+  topScores: []
 }
 
 function gameReducer(state = defaultState, action) {
