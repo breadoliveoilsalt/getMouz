@@ -8,7 +8,7 @@ import yourScoreImage from '../images/yourScore.png'
 import topScoresImage from '../images/topScores.png'
 
 
-class GameContainerComponent extends Component {
+class GameWindowsContainer extends Component {
 
   componentDidMount() {
     this.getTopScores()
@@ -60,5 +60,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameContainerComponent)
-// export default GameContainerComponent
+export default connect(mapStateToProps, mapDispatchToProps)(GameWindowsContainer)
