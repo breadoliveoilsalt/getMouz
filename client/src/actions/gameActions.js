@@ -72,7 +72,6 @@ export function increaseScore(num) {
 }
 
 export function populateScores(scores) {
-  debugger
   return {
     type: 'POPULATE_SCORES',
     payload: scores

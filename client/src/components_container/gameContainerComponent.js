@@ -17,7 +17,7 @@ class GameContainerComponent extends Component {
   getTopScores(){
     fetch('/api/scores')
     .then(response => response.json())
-    .then(scores => populateScores(scores))
+    .then(scores => this.props.populateScores(scores))
   }
 
 // change this to have a directions component
