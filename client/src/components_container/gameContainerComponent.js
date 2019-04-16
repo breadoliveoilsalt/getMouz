@@ -11,6 +11,8 @@ class GameContainerComponent extends Component {
 
 // change this to have a directions component
 // and flush out scores component
+// from here i need to add scores to the reducer, populate the reducer when component loads, and then
+// update scores everytime person loses
 
   render() {
     return(
