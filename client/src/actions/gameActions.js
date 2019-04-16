@@ -1,16 +1,32 @@
 
-
-export function updateCatPosition(coordinates) {
-  // debugger
-  return {
-    type: 'UPDATE_CAT_POSITION',
-    payload: coordinates
-  }
-}
-
 export function startGame() {
   return {
     type: 'START_GAME'
+  }
+}
+
+export function resetGame() {
+  return {
+    type: 'RESET_GAME'
+  }
+}
+
+export function restartGame() {
+  return {
+    type: 'RESTART_GAME'
+  }
+}
+
+export function continueGame() {
+  return {
+    type: 'CONTINUE_GAME'
+  }
+}
+
+export function updateCatPosition(coordinates) {
+  return {
+    type: 'UPDATE_CAT_POSITION',
+    payload: coordinates
   }
 }
 
@@ -28,17 +44,6 @@ export function setCatPosition(coordinates) {
   }
 }
 
-export function resetGame() {
-  return {
-    type: 'RESET_GAME'
-  }
-}
-
-export function restartGame() {
-  return {
-    type: 'RESTART_GAME'
-  }
-}
 
 export function setGameWon() {
   return {

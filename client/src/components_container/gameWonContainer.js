@@ -7,7 +7,7 @@ const GameWonContainer = (props) => {
 
       <div className="game-screen" tabIndex="0">
 
-          <a onClick={props.restartGame}>
+          <a onClick={props.continueGame}>
             <img className="cat-menu-image" src={gameWonImage} />
           </a>
         </div>

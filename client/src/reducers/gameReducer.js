@@ -25,6 +25,8 @@ function gameReducer(state = defaultState, action) {
       return Object.assign({}, defaultState)
     case 'RESTART_GAME':
       return Object.assign({}, defaultState, {gameStarted: true})
+    case 'CONTINUE_GAME':
+      return Object.assign({}, defaultState, {gameStarted: true}, {score: state.score})
     case 'GAME_WON':
       return Object.assign({}, state, {gameWon: true})
     case 'CATCH_MOUSE':

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { startGame, resetGame, restartGame } from '../actions/gameActions'
+import { startGame, resetGame, restartGame, continueGame } from '../actions/gameActions'
 import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
@@ -31,7 +31,7 @@ class GamePlayContainer extends Component {
     } else if (this.props.gameStarted && this.props.gameWon) {
       return (
         <div>
-          <GameWonContainer restartGame={this.props.restartGame} />
+          <GameWonContainer continueGame={this.props.continueGame} />
         </div>
       )
     } else if (this.props.gameStarted && !this.props.gameWon && this.props.gameLost) {
@@ -64,7 +64,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     startGame: () => dispatch(startGame()),
     resetGame: () => dispatch(resetGame()),
-    restartGame: () => dispatch(restartGame())
+    restartGame: () => dispatch(restartGame()),
+    continueGame: () => dispatch(continueGame())
     // up to add restart game
    }
 }
