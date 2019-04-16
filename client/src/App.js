@@ -21,8 +21,8 @@ class App extends Component {
           <NavBar />
 
           <Switch>
-            <Route path="/randomdots" exact component={RandomDotsContainer} />
             <Route path="/" exact component={GameWindowsContainer} />
+            <Route path="/randomdots" exact component={RandomDotsContainer} />
           </Switch>
 
         </div>

@@ -26,6 +26,19 @@ class GameWindowsContainer extends Component {
 // update scores everytime person loses
 
   render() {
+
+    let topScoresList = null
+
+    if (this.props.topScores) {
+      topScoresList = this.props.topScores.map( (score) => {
+        return (
+          <p className={"text-centered"} >
+            <span style={{color: 'white', fontSize: '1.5em', marginTop: '0.5em'}}> {score.points} </span>
+          </p>
+          )
+      })
+    }
+
     return(
       <div id="game-container">
         <div className={"game-column"}>
@@ -34,7 +47,11 @@ class GameWindowsContainer extends Component {
             <span style={{color: 'white', fontSize: '3em'}}> {this.props.score} </span>
           </p>
           <img src={topScoresImage} style={{display: 'block'}} />
+            {topScoresList}
+
         </div>
+
+
         <GamePlayContainer />
 
         <div className={"game-column"} >
