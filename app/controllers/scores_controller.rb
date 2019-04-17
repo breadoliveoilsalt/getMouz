@@ -7,6 +7,7 @@ class ScoresController < ApplicationController
   end
 
   def create
+    binding.pry
     score = Score.new(socre_params)
     if score.save
       Score.delete_excess_scores
