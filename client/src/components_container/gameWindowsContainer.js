@@ -11,7 +11,7 @@ import topScoresImage from '../images/topScores.png'
 class GameWindowsContainer extends Component {
 
   componentDidMount() {
-    if (!this.props.topScores){
+    if (this.props.topScores.length < 5){
       this.props.getTopScores()
     }
   }
