@@ -88,7 +88,8 @@ export function getTopScores() {
     fetch('/api/scores')
       .then(response => response.json())
       .then(scores => {
-        dispatch(populateScores(scores))
+        let tempScores = scores.map( score => score.points)
+        dispatch(populateScores(tempScores))
       })
   }
 }
@@ -98,18 +99,21 @@ export function updateTopScores() {
 
     let currentScore = getState().game.score
     let currentTopScores = getState().game.topScores
+    debugger
 
       // This is to short circuit the thunk if multiple rain drops touch and this
       // is called multiple times
     if (currentTopScores.includes(currentScore)) {
+      debugger
       return
     }
 
     if (currentTopScores[4] === undefined || currentScore > currentTopScores[4]) {
-      // debugger
       let tempScores = [...currentTopScores, currentScore]
-      tempScores.sort((a,b) => b - a)
-      tempScores.splice(4)
+      debugger
+      tempScores.sort(function(a,b) {
+        return b - a})
+      tempScores.splice(5)
       dispatch(populateScores(tempScores))
 
       fetch('/api/scores', {

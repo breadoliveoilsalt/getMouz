@@ -35,7 +35,7 @@ class GameWindowsContainer extends Component {
       topScoresList = this.props.topScores.map( (score) => {
         return (
           <p className={"text-centered"} >
-            <span style={{color: 'white', fontSize: '1.5em', marginTop: '0.5em'}}> {score.points} </span>
+            <span style={{color: 'white', fontSize: '1.5em', marginTop: '0.5em'}}> {score} </span>
           </p>
           )
       })
