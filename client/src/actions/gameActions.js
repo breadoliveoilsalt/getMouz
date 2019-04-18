@@ -99,18 +99,15 @@ export function updateTopScores() {
 
     let currentScore = getState().game.score
     let currentTopScores = getState().game.topScores
-    debugger
 
       // This is to short circuit the thunk if multiple rain drops touch and this
       // is called multiple times
     if (currentTopScores.includes(currentScore)) {
-      debugger
       return
     }
 
     if (currentTopScores[4] === undefined || currentScore > currentTopScores[4]) {
       let tempScores = [...currentTopScores, currentScore]
-      debugger
       tempScores.sort(function(a,b) {
         return b - a})
       tempScores.splice(5)
