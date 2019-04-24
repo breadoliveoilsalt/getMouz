@@ -122,6 +122,7 @@ export function updateTopScores() {
         if (res.errors) {
           throw res.errors
         }})
+      .then(console.log("at least we tried fetching"))
       .catch(err => {
         console.log("Sorry, the following error occured: ", err)
       })

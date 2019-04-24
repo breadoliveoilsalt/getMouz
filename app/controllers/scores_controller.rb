@@ -7,12 +7,11 @@ class ScoresController < ApplicationController
   end
 
   def create
-    binding.pry
-    score = Score.new(socre_params)
+    score = Score.new(score_params)
     if score.save
       Score.delete_excess_scores
     else
-      ender json: { errors: score.errors.full_messages }
+      render json: { errors: score.errors.full_messages }
     end
 
   end
