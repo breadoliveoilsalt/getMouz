@@ -44,7 +44,7 @@ export function setCatPosition(coordinates) {
   }
 }
 
-
+//
 export function setGameWon() {
   return {
     type: 'GAME_WON'
