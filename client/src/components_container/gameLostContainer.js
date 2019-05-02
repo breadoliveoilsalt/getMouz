@@ -8,9 +8,8 @@ class GameLostContainer extends Component {
     super(props)
   }
 
-  updateScoresAndRestart = () => {
+  componentDidMount() {
     this.props.updateTopScores()
-    this.props.restartGame()
   }
 
   render() {
@@ -19,7 +18,7 @@ class GameLostContainer extends Component {
 
          <div className="game-screen" tabIndex="0">
 
-             <a onClick={this.updateScoresAndRestart}>
+             <a onClick={this.props.restartGame}>
                <img className="cat-menu-image" src={gameLostImage} />
              </a>
            </div>
