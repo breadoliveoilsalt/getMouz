@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import RandomDotsContainer from './randomDotsContainer'
 import RainContainer from './rainContainer'
 
-import { clearDotFactoryandDots } from '../actions/randomDotsActions'
+// import { clearDotFactoryandDots } from '../actions/randomDotsActions'
 
 class AboutContainer extends Component {
 
   componentWillUnmount() {
-    this.props.clearDotFactoryandDots()
+    // this.props.clearDotFactoryandDots()
   }
 
   render() {
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clearDotFactoryandDots: () => dispatch(clearDotFactoryandDots())
+    // clearDotFactoryandDots: () => dispatch(clearDotFactoryandDots())
 
    }
 }
