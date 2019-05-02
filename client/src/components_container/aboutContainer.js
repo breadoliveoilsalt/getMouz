@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 import RandomDotsContainer from './randomDotsContainer'
 import RainContainer from './rainContainer'
+import { Link } from 'react-router-dom'
 
-// import { clearDotFactoryandDots } from '../actions/randomDotsActions'
 
 class AboutContainer extends Component {
-
-  componentWillUnmount() {
-    // this.props.clearDotFactoryandDots()
-  }
 
   render() {
     return (
@@ -29,27 +24,23 @@ class AboutContainer extends Component {
         <RainContainer />
 
         <p className={"basic-text"} >
-          And once I realized that this looked like rain, a completely random thought popped into my head: "You know who hates rain? Our nutty tabby."  She's a funny little character, completely obsessed with any tiny movement under a sheet or behind a door that could remotely be a small creature like a mouse.  So I popped a small photo of her in the box with the ability to move it around to avoid the rain, added the appearance of a mouse, and the rest of the game ran from there.
+          And once I realized that this looked like rain, a completely random thought popped into my head: "You know who hates rain? Our nutty tabby." She's a funny little character, completely obsessed with any tiny movement under a sheet or behind a door that could even remotely be a mouse. The prospect of getting a mouse is probably the only thing that could make her stand to be out in the rain. So I popped an awkward photo of her under the rain drops with the ability to move it around, and I couldn't stop laughing at how silly it looked.  The rest of the game ran from there, with me continuing to laugh and have a good time.
+        </p>
+
+        <p className={"basic-text"} >
+          Hope you enjoyed the game! The code can be found on GitHub <a className={"external-link"} target="_blank" href="https://github.com/breadoliveoilsalt/getMouz">here</a>, and additional projects I've created can be found <a className={"external-link"} target="_blank" href="https://www.breadoliveoilsalt.com/projects/">here</a>.  Thanks again for stopping by.
+        </p>
+
+        <p className={"basic-text"} style={{textAlign: "center"}} >
+          <Link className={"external-link"} exact to="/">Back to the Game</Link>
+        </p>
+
+        <p>
         </p>
 
       </div>
     )
   }
-
-
-
 }
 
-const mapStateToProps = (state) => {
-  return {
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // clearDotFactoryandDots: () => dispatch(clearDotFactoryandDots())
-
-   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AboutContainer)
+export default AboutContainer

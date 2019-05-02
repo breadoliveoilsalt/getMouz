@@ -36,7 +36,7 @@ class GameStartedContainer extends Component {
   componentWillUnmount() {
     // clearTimeout(this.mouseTimer); -- apparently you don't really need this
     clearInterval(this.rainTimer);
-    // this.props.clearRainDropFactoryAndRainDrops()
+    this.props.clearRainDropFactoryAndRainDrops()
   }
 
   renderRainDrops() {

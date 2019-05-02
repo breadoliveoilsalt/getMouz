@@ -118,5 +118,10 @@
 
 p.basic-text {
   font-size: 30px;
+  text-align: justify;
+  text-justify: inter-word;
+}
 
+a.external-link {
+  color: blue;
 }
