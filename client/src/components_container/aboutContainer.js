@@ -24,7 +24,7 @@ class AboutContainer extends Component {
         <RainContainer />
 
         <p className={"basic-text"} >
-          And once I realized that this looked like rain, a completely random thought popped into my head: "You know who hates rain? Our nutty tabby." She's a funny little character, completely obsessed with any tiny movement under a sheet or behind a door that could even remotely be a mouse. The prospect of getting a mouse is probably the only thing that could make her stand to be out in the rain. So I popped an awkward photo of her under the rain drops with the ability to move it around, and I couldn't stop laughing at how silly it looked.  The rest of the game ran from there, with me continuing to laugh and have a good time.
+          And once I realized that this looked like rain, a completely random thought popped into my head: "You know who hates rain? Our nutty tabby." She's a funny little character, completely obsessed with any tiny movement under a sheet or behind a door that could even remotely be a mouse. The prospect of getting a mouse is probably the only thing that could make her stand to be out in the rain. So I popped an awkward photo of her under the rain drops with the ability to move it around, and I couldn't stop laughing at how silly it looked.  The rest of the game ran from there, with me continuing to laugh and have a good time.  All of the photos you see are pictures of our tabby.
         </p>
 
         <p className={"basic-text"} >
