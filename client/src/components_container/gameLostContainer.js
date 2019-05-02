@@ -1,18 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
+
 import gameLostImage from '../images/game-lost-image.png'
 
-const GameLostContainer = (props) => {
+class GameLostContainer extends Component {
 
-  return(
+  constructor(props) {
+    super(props)
+  }
 
-      <div className="game-screen" tabIndex="0">
+  updateScoresAndRestart = () => {
+    this.props.updateTopScores()
+    this.props.restartGame()
+  }
 
-          <a onClick={props.restartGame}>
-            <img className="cat-menu-image" src={gameLostImage} />
-          </a>
-        </div>
-    )
+  render() {
 
+    return(
+
+         <div className="game-screen" tabIndex="0">
+
+             <a onClick={this.updateScoresAndRestart}>
+               <img className="cat-menu-image" src={gameLostImage} />
+             </a>
+           </div>
+
+       )
+
+  }
 }
 
 export default GameLostContainer
+
+// import React from 'react'
+// import gameLostImage from '../images/game-lost-image.png'
+//
+// const GameLostContainer = (props) => {
+//
+//   return(
+//
+//       <div className="game-screen" tabIndex="0">
+//
+//           <a onClick={props.restartGame}>
+//             <img className="cat-menu-image" src={gameLostImage} />
+//           </a>
+//         </div>
+//     )
+//
+// }
+//
+// export default GameLostContainer
