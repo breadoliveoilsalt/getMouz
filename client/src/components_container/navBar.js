@@ -21,7 +21,7 @@ class NavBar extends Component {
     return(
       <div className={"navBar"}>
         <Link className={"navlink"} exact to="/" onClick={this.generalRestart}> <img src={playImage} /> </Link>
-        <Link className={"navlink"} exact to="/randomdots"> <img src={aboutImage} /> </Link>
+        <Link className={"navlink"} exact to="/about"> <img src={aboutImage} /> </Link>
       </div>
 
       )

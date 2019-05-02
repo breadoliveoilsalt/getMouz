@@ -107,3 +107,16 @@
   left: 19em;
   bottom: 22em;
 }
+
+.text-container {
+  color: white;
+  /* font-size: 30px; */
+  width: 40em;
+  margin: 0 auto;
+  border: 1em white;
+}
+
+p.basic-text {
+  font-size: 30px;
+
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 
-import RainDrop from './rainDropComponent'
+import RainDrop from './rainDropComponentForAboutPage'
 
 class RainContainer extends Component {
 
@@ -59,7 +59,6 @@ class RainContainer extends Component {
 
     return (
       <div>
-        <h1 className="text-centered">Rain</h1>
         <div className="container">
           {dropsToRender}
         </div>

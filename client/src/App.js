@@ -6,9 +6,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Header from './components_container/header'
 import NavBar from './components_container/navBar'
 import GameWindowsContainer from './components_container/gameWindowsContainer'
-import HomeComponent from './components_container/homeComponent'
-import RandomDotsContainer from './components_container/randomDotsContainer'
-import RainContainer from './components_container/rainContainer'
+import AboutContainer from './components_container/aboutContainer'
+// import HomeComponent from './components_container/homeComponent'
+// import RandomDotsContainer from './components_container/randomDotsContainer'
+// import RainContainer from './components_container/rainContainer'
 
 class App extends Component {
 
@@ -22,7 +23,7 @@ class App extends Component {
 
           <Switch>
             <Route path="/" exact component={GameWindowsContainer} />
-            <Route path="/randomdots" exact component={RandomDotsContainer} />
+            <Route path="/about" exact component={AboutContainer} />
           </Switch>
 
         </div>

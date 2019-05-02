@@ -50,7 +50,6 @@ class RandomDotsContainer extends Component {
 
     return(
       <div>
-        <h1 className="text-centered">Random Dots!</h1>
         <div className="non-game-screen">
           {dotsDisplay}
         </div>
