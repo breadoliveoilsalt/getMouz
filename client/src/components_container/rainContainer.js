@@ -59,7 +59,7 @@ class RainContainer extends Component {
 
     return (
       <div>
-        <div className="container">
+        <div className="non-game-screen">
           {dropsToRender}
         </div>
       </div>
