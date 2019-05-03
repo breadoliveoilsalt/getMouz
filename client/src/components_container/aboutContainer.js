@@ -12,7 +12,7 @@ class AboutContainer extends Component {
       <div className={"text-container"} >
 
         <p className={"basic-text"}>
-          Thanks for stopping by.  This quirky little game was built with React and has a Redux-managed state.  It evolved from an interest in studying how React and Redux could work together to make things move and appear at different times.  When I sat down to build something toward this end, I didn't have the game in mind.  I simply made a container where different squares would appear at random...
+          Thanks for stopping by.  This funny little game was built with React and has a Redux-managed state.  It evolved from an interest in studying how React and Redux could work together to make things move and appear at different times.  When I sat down to build something toward this end, I didn't have the game in mind.  I simply made a container where different squares would appear at random...
         </p>
 
         <RandomDotsContainer />
