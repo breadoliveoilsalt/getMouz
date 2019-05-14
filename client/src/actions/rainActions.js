@@ -51,17 +51,17 @@ class RainDropFactory {
   }
 
   createRainDrop() {
+
+    // This function returns an object where id number is the key and value is an array with segments.
+    // This should make lookup and iteration easier.
+
     this.idCounter++
 
     let id = this.idCounter
     let startingXCoordinate = this.getRandom(0,29)
-    // let startingXCoordinateToString = `${xCoordinate}em`
 
     let startingYCoordinate = 29
 
-
-    // Returns an object where id number is the key and value is an array with segments.
-    // This should make lookup and iteration easier.
     let currentId = this.idCounter
 
     let returnObject = {}
