@@ -4,7 +4,6 @@
   width: 50em;
 }
 
-
 .navBar {
   margin: 0em auto;
   height: 5em; /* 640px x 80px */
@@ -17,19 +16,6 @@
   display: inline-block;
   margin: 0 1em;
 }
-/* .navlink {
-  display: inline-block;
-  text-align: center;
-
-} */
-
-/* This centers an image on its own */
-/* .navlink {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  margin: 0 3em;
-} */
 
 #game-container {
   height: 31em;
@@ -59,8 +45,6 @@
 .game-screen {
   position: relative;
   margin: 0 auto;
-  /* height: 80vh; */
-  /* width: 80vh; */
   height: 30em;  /* 16px * 30 = 460px */
   width: 30em;
   border: solid blue .5em;
@@ -71,8 +55,6 @@
 .non-game-screen {
     position: relative;
     margin: 0 auto;
-    /* height: 80vh; */
-    /* width: 80vh; */
     height: 30em;  /* 16px * 30 = 460px */
     width: 30em;
     border: solid blue .5em;
@@ -86,31 +68,10 @@
 .cat-menu-image {
   display: block;
   margin: 5em auto;
-  /* height: 8em; */
-  /* width: 8em; */
-}
-
-#cat-game-image {
-  /* display: inline-block;
-  position: absolute; */
-  /* bottom: 14em; */
-  /* left: 14em; */
-  /* height: 3em; */
-  /* width: 3em; */
-}
-/* to delete at some point: */
-.dotty {
-  position: absolute;
-  background-color: pink;
-  height: 1em;
-  width: 1em;
-  left: 19em;
-  bottom: 22em;
 }
 
 .text-container {
   color: white;
-  /* font-size: 30px; */
   width: 40em;
   margin: 0 auto;
   border: 1em white;
