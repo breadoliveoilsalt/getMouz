@@ -1,5 +1,3 @@
-// can I have a const defaultState here?
-
 const defaultState = {
   gameStarted: false,
   gameWon: false,
