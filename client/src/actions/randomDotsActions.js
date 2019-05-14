@@ -69,7 +69,6 @@ export class DotFactory {
     return colors[index]
   }
 
-    // Bug to fix: this sometimes gives me 4, which screws others up.
   selectSize() {
     return this.getRandom(1,3)
   }
@@ -86,23 +85,9 @@ export class DotFactory {
         return 0
     }
   }
-    // Get random number, inclusive of max and min. Might have fixed.
+
   getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
 }
-
-// This is generating the follow React error when called above:
-// [for the line with this.id:   Expected an assignment or function call and instead saw an expression  no-unused-expressions
-// class Dot {
-//
-//   constructor(attributes) {
-//     this.id = attributes.id,
-//     this.color = attributes.color,
-//     this.height = attributes.height,
-//     this.width = attributes.width,
-//     this.left = attributes.left,
-//     this.bottom = attributes.bottom
-//   }
-// }
