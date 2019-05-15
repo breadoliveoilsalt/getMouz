@@ -23,18 +23,9 @@ class GameStartedContainer extends Component {
       .then(this.rainTimer = setInterval(() => this.renderRainDrops(), 350))
       .then(setTimeout(() => this.generateMouse(), 2000))
       .then(setTimeout(() => this.generateCat(), 3000))
-    // this.props.clearRainDropFactoryAndRainDrops()
-    //
-    // let rdFactory = createRainFactory()
-    // this.props.addRainDropFactory(rdFactory)
-    // // this.rainTimer = setInterval(() => this.renderRainDrops(), 350)
-    //
-    // this.mouseTimer = setTimeout(() => this.generateMouse(), 2000)
-    // this.catTimer = setTimeout(() => this.generateCat(), 3000)
   }
 
   componentWillUnmount() {
-    // clearTimeout(this.mouseTimer); -- apparently you don't really need this
     clearInterval(this.rainTimer);
     this.props.clearRainDropFactoryAndRainDrops()
   }
@@ -45,7 +36,6 @@ class GameStartedContainer extends Component {
       this.props.increaseScore(3)
   }
 
-  // should I change functions below to format above?
   generateMouse() {
     let mouseBottom = Math.floor(Math.random() * (27 - 26 + 1) + 26)
     let mouseLeft = Math.floor(Math.random() * (27) + 1)
@@ -135,8 +125,6 @@ class GameStartedContainer extends Component {
             increaseScore={this.props.increaseScore}
             catPosition={this.props.catPosition}
             thereIsOverlap={this.thereIsOverlap}
-            // mouseCaught={this.props.mouseCaught}
-            // rainTouched={this.props.touchedRain}
             />
         )
     }
