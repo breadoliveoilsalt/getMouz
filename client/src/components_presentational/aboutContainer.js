@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import RandomDotsContainer from './randomDotsContainer'
-import RainContainer from './rainContainer'
+import RandomDotsContainer from '../components_container/randomDotsContainer'
+import RainContainer from '../components_container/rainContainer'
 import { Link } from 'react-router-dom'
 
 
-class AboutContainer extends Component {
+const AboutContainer = () => {
 
-  render() {
     return (
       <div className={"text-container"} >
 
@@ -40,7 +39,6 @@ class AboutContainer extends Component {
 
       </div>
     )
-  }
 }
 
 export default AboutContainer
