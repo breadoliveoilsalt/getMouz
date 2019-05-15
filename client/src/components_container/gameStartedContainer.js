@@ -5,7 +5,7 @@ import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchM
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
 import MouseComponent from './mouseComponent'
-import CatComponent from './catComponent'
+import CatComponent from '../components_presentational/catComponent'
 
 class GameStartedContainer extends Component {
 
