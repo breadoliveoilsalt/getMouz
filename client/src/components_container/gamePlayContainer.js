@@ -6,7 +6,6 @@ import GameNotStartedContainer from './gameNotStartedContainer'
 import GameStartedContainer from './gameStartedContainer'
 import GameWonContainer from './gameWonContainer'
 import GameLostContainer from './gameLostContainer'
-// import catImageLarg from '../images/cat-small.png'
 
 
 class GamePlayContainer extends Component {
