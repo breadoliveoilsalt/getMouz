@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { setGameLost, touchRain, updateTopScores } from '../actions/gameActions'
 
 class RainDrop extends Component {
 
@@ -16,9 +14,6 @@ class RainDrop extends Component {
     clearInterval(this.timer)
   }
 
-    // Without the "vebosity" and "clones" below, the redux state's rainDrop objects would be updated directly.
-    // Now it is updated via a dispatch methods
-    // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
     let segmentsToUpdate = [...this.props.segments]
     segmentsToUpdate.forEach( (segment) => {
@@ -34,7 +29,7 @@ class RainDrop extends Component {
     }
   }
 
-  
+
   // This affects how far each segment moves each time it is updated by the parent component
   getRandomTiming() {
     return Math.floor(Math.random() * (1500 - 250 + 1) + 250)
@@ -72,20 +67,4 @@ class RainDrop extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    score: state.game.score,
-    caughtMouse: state.game.caughtMouse,
-    touchedRain: state.game.touchedRain
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setGameLost: () => dispatch(setGameLost()),
-    touchRain: () => dispatch(touchRain()),
-    updateTopScores: (points) => dispatch(updateTopScores(points))
-   }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RainDrop)
+export default RainDrop
