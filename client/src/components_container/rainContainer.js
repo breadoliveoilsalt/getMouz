@@ -10,8 +10,7 @@ class RainContainer extends Component {
     let rdFactory = createRainFactory()
     this.props.addRainDropFactory(rdFactory)
     this.timer = setInterval(() => this.renderOrClearRainDrops(), 750)
-    // Was  helpful for testing a one off rainDrop:
-    // setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
+    // Was  helpful for testing a one off rainDrop: setTimeout(function() {this.renderRainDrop()}.bind(this), 1000)
   }
 
   componentWillUnmount() {
@@ -20,35 +19,11 @@ class RainContainer extends Component {
   }
 
   renderOrClearRainDrops() {
-    // This could be where I check the length of rainDrops and only add more if they exceed a certain amount
     let drop = this.props.rainDropFactory.createRainDrop()
     this.props.addRainDrop(drop)
-    // Testing out cleaning rainDrops here rather than in render()
-    // 190402 - below works but moving to raindrop segment itself
-    // for (let segmentKey in this.props.rainDrops) {
-    //   if (this.props.rainDrops[segmentKey][2].bottom < 0) {
-    //       this.props.clearRainDrop(segmentKey)
-    //     }
-    // }
   }
 
-  // 190225
-  //I could have a section here that updates each raindrop in state...makes copy of state, iterates through each one and updates and deletes as /// appropriate, then updates state.
-
   render() {
-
-    // works:
-    // const dropsToRender = []
-    //
-    // for (let segmentKey in this.props.rainDrops) {
-    //   if (this.props.rainDrops[segmentKey][2].bottom < 0) {
-    //       this.props.clearRainDrop(segmentKey)
-    //   } else {
-    //     let segments = this.props.rainDrops[segmentKey]
-    //     dropsToRender.push(<RainDrop idNumber={segmentKey} segments={segments} updateRainDrop={this.props.updateRainDrop}/>)
-    //   }
-    // }
-
 
     const dropsToRender = []
 
