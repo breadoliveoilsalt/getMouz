@@ -16,9 +16,6 @@ class RainDrop extends Component {
     clearInterval(this.timer)
   }
 
-    // Without the "vebosity" and "clones" below, the redux state's rainDrop objects would be updated directly.
-    // Now it is updated via a dispatch methods
-    // Later: this is really confusing, b/c updateSegments will still make the segments move even without dispatches
   updateSegments() {
     let segmentsToUpdate = [...this.props.segments]
     segmentsToUpdate.forEach( (segment) => {
@@ -44,19 +41,14 @@ class RainDrop extends Component {
       let yOverlapWithCat = this.props.thereIsOverlap(this.props.catPosition.bottom, 3, segment.bottom, 1)
 
       if (xOverlapWithCat && yOverlapWithCat) {
-        segment.backgroundColor = "red" // this probably changes the state directly
-        // segment.height = 2
-        // segment.width = 3
-        // this.render() -- this won't do anything b/c the segment rendering is key'd to the redux state
-        clearInterval(this.timer)// -- this only stops the rain drop that caused the game to be lost
-          // intended to prevent going from winning screen to losing screen
-          // This is repetitous of code in updateSegments, but I think needed, b/c each segment is embued with ability to check of game lost and might already have that ability and be checking once the original touchedRain is indicated
+        segment.backgroundColor = "red" // Note: this probably changes the redux state directly
+        clearInterval(this.timer) // -- This only stops the rain drop that caused the game to be lost.
+          // It's intended to prevent going from winning screen to losing screen.
+          // This is repetitous of code in updateSegments, but I think needed, b/c each segment is embued with ability to check of game lost and might already have that ability and be checking once the original touchedRain is indicated.
         if (!this.props.caughtMouse && !this.props.touchedRain) {
           Promise.resolve(this.props.touchRain())
           .then(setTimeout(this.props.setGameLost, 1500))
-          // .then(this.props.updateTopScores())
         }
-        // console.log("game lost!")
       }
 
     })
@@ -70,7 +62,7 @@ class RainDrop extends Component {
   render() {
 
     // If I make a separate Segment component, each segment will have to be wrapped in a div pair.
-    // That's a lot of divs! Too many.  So left things this way without a Segment component
+    // That's a lot of divs! Too many.  So left things this way without a Segment component.
     const segments = this.props.segments.map( (segment) => {
 
       if (
