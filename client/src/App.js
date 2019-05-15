@@ -3,7 +3,7 @@ import './App.css'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Header from './components_container/header'
+import Header from './components_presentational/header'
 import NavBar from './components_container/navBar'
 import GameWindowsContainer from './components_container/gameWindowsContainer'
 import AboutContainer from './components_presentational/aboutContainer'
