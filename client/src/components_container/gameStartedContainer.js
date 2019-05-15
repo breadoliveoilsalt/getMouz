@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { updateCatPosition, setMousePosition, setCatPosition, setGameWon, catchMouse, touchRain, increaseScore } from '../actions/gameActions'
 import { createRainFactory, addRainDropFactory, addRainDrop, updateRainDrop, clearRainDrop, clearRainDropFactoryAndRainDrops } from '../actions/rainActions'
 import RainDrop from './rainDropComponent'
-import MouseComponent from './mouseComponent'
+import MouseComponent from '../components_presentational/mouseComponent'
 import CatComponent from '../components_presentational/catComponent'
 
 class GameStartedContainer extends Component {
