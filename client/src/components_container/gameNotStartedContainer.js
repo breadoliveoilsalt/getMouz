@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import gameStartLogo from '../images/game-start-logo.png'
 
 class GameNotStartedContainer extends Component {

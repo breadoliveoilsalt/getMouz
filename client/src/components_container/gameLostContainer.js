@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import gameLostImage from '../images/game-lost-image.png'
 
 class GameLostContainer extends Component {
