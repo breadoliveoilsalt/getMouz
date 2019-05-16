@@ -1,6 +1,5 @@
 import React from 'react'
 import gameWonImage from '../images/game-won-image-v2.png'
-import gameLostImage from '../images/game-lost-image.png'
 
 const GameWonContainer = (props) => {
   return(

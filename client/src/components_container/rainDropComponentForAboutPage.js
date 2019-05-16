@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 
 class RainDrop extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.timer = setInterval(() => this.updateSegments(), this.getRandomTiming())
   }

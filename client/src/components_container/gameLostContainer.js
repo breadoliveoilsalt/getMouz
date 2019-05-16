@@ -3,10 +3,6 @@ import gameLostImage from '../images/game-lost-image.png'
 
 class GameLostContainer extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.updateTopScores()
   }

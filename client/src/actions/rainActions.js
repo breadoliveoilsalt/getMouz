@@ -57,7 +57,6 @@ class RainDropFactory {
 
     this.idCounter++
 
-    let id = this.idCounter
     let startingXCoordinate = this.getRandom(0,29)
 
     let startingYCoordinate = 29

@@ -4,10 +4,6 @@ import { setGameLost, touchRain, updateTopScores } from '../actions/gameActions'
 
 class RainDrop extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.timer = setInterval(() => this.updateSegments(), this.getRandomTiming())
   }
